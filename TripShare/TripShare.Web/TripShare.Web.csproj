@@ -276,6 +276,16 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TripShare.Data\TripShare.Data.csproj">
+      <Project>{3b4f0e40-77ab-4b9e-894b-aab1db43fb88}</Project>
+      <Name>TripShare.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TripShare.Models\TripShare.Models.csproj">
+      <Project>{e48893d4-7427-48b8-a00b-1fa30fed5a7e}</Project>
+      <Name>TripShare.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
