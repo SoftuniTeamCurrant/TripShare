@@ -9,19 +9,35 @@
 
     public class TripShareDbContext : IdentityDbContext<User>
     {
+        
         public TripShareDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("TripShare", throwIfV1Schema: false)
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<TripShareDbContext, Configuration>());
+            Database.SetInitializer(
+                new MigrateDatabaseToLatestVersion<TripShareDbContext, Configuration>());
+        }
+
+     
+
+        public virtual IDbSet<Trip> Trips { get; set; }
+
+        public virtual IDbSet<City> Cities { get; set; }
+
+        public virtual IDbSet<Comment>  Comments { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.OwnTrip)
+                .WithRequired(p => p.TripOwner)
+                .WillCascadeOnDelete(false);
+
+            base.OnModelCreating(modelBuilder);
         }
 
         public static TripShareDbContext Create()
         {
             return new TripShareDbContext();
         }
-
-        public IDbSet<Trip> Trips { get; set; }
-
-        public IDbSet<City> Cities { get; set; }
     }
 }
