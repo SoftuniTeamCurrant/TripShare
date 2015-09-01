@@ -1,4 +1,6 @@
-﻿namespace TripShare.Data
+﻿using System.Data.Entity.ModelConfiguration.Conventions;
+
+namespace TripShare.Data
 {
     using System.Data.Entity;
 
@@ -27,6 +29,7 @@
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Entity<User>()
                 .HasMany(u => u.OwnTrip)
                 .WithRequired(p => p.TripOwner)
