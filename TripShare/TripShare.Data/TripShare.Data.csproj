@@ -56,9 +56,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ITripShareData.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\EFRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="TripShareData.cs" />
     <Compile Include="TripShareDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
