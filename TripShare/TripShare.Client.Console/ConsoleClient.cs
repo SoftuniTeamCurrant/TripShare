@@ -1,4 +1,6 @@
-﻿namespace TripShare.Client.Console
+﻿using System.Runtime.CompilerServices;
+
+namespace TripShare.Client.Console
 {
     using System;
     using System.Collections.Generic;
@@ -22,6 +24,11 @@
             {
                 Console.WriteLine(city);
             }
+
+            var trip = data.Trips.Find(1);
+
+            Console.WriteLine("Ot" + " " + trip.DepartureCity.Name + " do " + trip.ArrivalCity.Name + " na {0:dd/MM}",
+                trip.DepartureDate);
         }
     }
 }

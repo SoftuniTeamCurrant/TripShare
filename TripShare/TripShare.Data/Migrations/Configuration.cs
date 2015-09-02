@@ -115,7 +115,8 @@ namespace TripShare.Data.Migrations
                 DepartureCityId = departureCity.Id,
                 DepartureCity = departureCity,
                 ArrivalCityId = arrivalCity.Id,
-                ArrivalCity = arrivalCity
+                ArrivalCity = arrivalCity,
+                DepartureDate = new DateTime(2015, 9, 3, 12, 0, 0)
             };
 
             var secondTrip = new Trip()
@@ -127,7 +128,8 @@ namespace TripShare.Data.Migrations
                 DepartureCityId = arrivalCity.Id,
                 DepartureCity = arrivalCity,
                 ArrivalCityId = departureCity.Id,
-                ArrivalCity = departureCity
+                ArrivalCity = departureCity,
+                DepartureDate = new DateTime(2015, 9, 4, 12, 0, 0)
             };
 
             context.Trips.Add(trip);
