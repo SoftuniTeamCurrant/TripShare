@@ -4,6 +4,7 @@ namespace TripShare.Data.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using TripShare.Models;
 
     public sealed class Configuration : DbMigrationsConfiguration<TripShareDbContext>
     {
@@ -16,18 +17,46 @@ namespace TripShare.Data.Migrations
 
         protected override void Seed(TripShareDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            if (!context.Cities.Any())
+            {
+                context.Cities.Add(new City()
+                {
+                    CityName = "Turnovo"
+                });
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+                context.Cities.Add(new City()
+                {
+                    CityName = "Mihaylovgrad"
+                });
+
+                context.Cities.Add(new City()
+                {
+                    CityName = "Ruse"
+                });
+
+                context.Cities.Add(new City()
+                {
+                    CityName = "Varna"
+                });
+
+                context.Cities.Add(new City()
+                {
+                    CityName = "Plovdiv"
+                });
+
+                context.Cities.Add(new City()
+                {
+                    CityName = "Sofiq"
+                });
+
+
+                context.Cities.Add(new City()
+                {
+                    CityName = "Burgas"
+                });
+
+                context.SaveChanges();
+            }
         }
     }
 }

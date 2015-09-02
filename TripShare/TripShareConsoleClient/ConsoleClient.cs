@@ -11,19 +11,6 @@ namespace TripShareConsoleClient
         {
             var context = new TripShareDbContext();
 
-           
-
-            context.Cities.Add(new City()
-            {
-                CityName = "Turnovo"
-            });
-            context.Cities.Add(new City()
-            {
-                CityName = "Mihaylovgrad"
-            });
-
-            context.SaveChanges();
-
             var cities = context.Cities
                 .Select(c => c.CityName)
                 .ToList();
