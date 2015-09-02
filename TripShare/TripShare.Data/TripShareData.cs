@@ -31,10 +31,43 @@
             }
         }
 
-        public IRepository<Trip> Trips {
+        public IRepository<Trip> Trips 
+        {
             get
             {
                 return this.GetRepository<Trip>();
+            }
+        }
+
+        public IRepository<City> Cities
+        {
+            get
+            {
+                return this.GetRepository<City>();
+            }
+        }
+
+        public IRepository<Comment> Comments
+        {
+            get
+            {
+                return this.GetRepository<Comment>();
+            }
+        }
+
+        public IRepository<Notification> Notifications
+        {
+            get
+            {
+                return this.GetRepository<Notification>();
+            }
+        }
+
+        public IRepository<PrivateMessage> PrivateMessages
+        {
+            get
+            {
+                return this.GetRepository<PrivateMessage>();
             }
         }
 

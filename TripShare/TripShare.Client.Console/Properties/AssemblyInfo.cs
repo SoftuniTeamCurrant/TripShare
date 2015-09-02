@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TripShareConsoleClient")]
+[assembly: AssemblyTitle("TripShare.Client.Console")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TripShareConsoleClient")]
+[assembly: AssemblyProduct("TripShare.Client.Console")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("bd120b76-4a28-429e-a935-f221a848eb2a")]
+[assembly: Guid("85323518-fa5a-4128-9303-fee1efe87d68")]
 
 // Version information for an assembly consists of the following four values:
 //

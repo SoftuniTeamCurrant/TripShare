@@ -10,6 +10,14 @@
 
         IRepository<Trip> Trips { get; }
 
+        IRepository<City> Cities { get; }
+
+        IRepository<Comment> Comments { get; }
+
+        IRepository<Notification> Notifications { get; }
+
+        IRepository<PrivateMessage> PrivateMessages { get; }
+
         int SaveChanges();
     }
 }
