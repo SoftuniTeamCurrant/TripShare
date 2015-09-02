@@ -7,23 +7,11 @@
     using TripShare.Data;
     using TripShare.Models;
 
-    public class Program
+    public class ConsoleClient
     {
         static void Main()
         {
             var data = new TripShareData();
-
-            data.Cities.Add(new City()
-            {
-                CityName = "Turnovo"
-            });
-
-            data.Cities.Add(new City()
-            {
-                CityName = "Mihaylovgrad"
-            });
-
-            data.SaveChanges();
 
             var cities = data.Cities
                 .All()
