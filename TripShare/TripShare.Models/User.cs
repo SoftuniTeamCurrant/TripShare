@@ -25,12 +25,12 @@
         public int CityId { get; set; }
         public City HomeCity { get; set; }
 
-        public virtual ICollection<Trip> OwnTrip
+        public virtual ICollection<Trip> OwnTrips
         {
             get { return this.ownTrips; }
             set { this.ownTrips = value; }
         }
-        public virtual ICollection<Trip> SavedTrip
+        public virtual ICollection<Trip> SavedTrips
         {
             get { return this.savedTrips; }
             set { this.savedTrips = value; }

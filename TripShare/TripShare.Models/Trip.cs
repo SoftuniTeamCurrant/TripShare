@@ -39,8 +39,8 @@
 
         public DateTime? ArrivalDate { get; set; }
 
-        public int DepartureCityId { get; set; }
-        [ForeignKey("DepartureCityId")]
+        public int CityId { get; set; }
+        [ForeignKey("CityId")]
         public virtual City DepartureCity { get; set; }
 
         public int ArrivalCityId { get; set; }

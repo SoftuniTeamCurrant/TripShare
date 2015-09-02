@@ -19,8 +19,6 @@ namespace TripShare.Data
                 new MigrateDatabaseToLatestVersion<TripShareDbContext, Configuration>());
         }
 
-     
-
         public virtual IDbSet<Trip> Trips { get; set; }
 
         public virtual IDbSet<City> Cities { get; set; }
@@ -35,7 +33,7 @@ namespace TripShare.Data
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Entity<User>()
-                .HasMany(u => u.OwnTrip)
+                .HasMany(u => u.OwnTrips)
                 .WithRequired(p => p.TripOwner)
                 .WillCascadeOnDelete(false);
 

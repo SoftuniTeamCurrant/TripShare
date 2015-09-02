@@ -1,4 +1,7 @@
-﻿namespace TripShare.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.ModelConfiguration.Configuration;
+
+namespace TripShare.Models
 {
     using System.Collections.Generic;
 
@@ -17,7 +20,7 @@
         public int Id { get; set; }
 
         public string CityName { get; set; }
-
+        
         public virtual ICollection<Trip> Trips
         {
             get { return this.trips; }
