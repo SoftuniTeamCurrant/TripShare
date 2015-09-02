@@ -27,6 +27,8 @@ namespace TripShare.Data
 
         public virtual IDbSet<Comment>  Comments { get; set; }
 
+        public virtual IDbSet<PrivateMessage> PrivateMessages { get; set; } 
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
