@@ -30,7 +30,7 @@
 
         public byte AvailableSeats { get; set; }
 
-        public DateTime DepartureDate { get; set; }
+        public DateTime? DepartureDate { get; set; }
 
         public int DepartureCityId { get; set; }
 

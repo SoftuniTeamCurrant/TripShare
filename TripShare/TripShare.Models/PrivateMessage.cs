@@ -23,6 +23,6 @@
         public string Content { get; set; }
 
         [Required]
-        public DateTime SendDate { get; set; }
+        public DateTime? SendDate { get; set; }
     }
 }
