@@ -7,18 +7,21 @@
 
     public class Trip
     {
+        private ICollection<User> joinedPeople; 
+
         private ICollection<Comment> comments;
 
         public Trip()
         {
             this.comments = new HashSet<Comment>();
+            this.joinedPeople = new HashSet<User>();
         }
 
         public int Id { get; set; }
 
-        public int TripOwnerId { get; set; }
+        public string TripOwnerId { get; set; }
 
-        public User TripOwner { get; set; }
+        public virtual User TripOwner { get; set; }
 
         public string Title { get; set; }
 
@@ -38,16 +41,22 @@
 
         public int DepartureCityId { get; set; }
         [ForeignKey("DepartureCityId")]
-        public City DepartureCity { get; set; }
+        public virtual City DepartureCity { get; set; }
 
         public int ArrivalCityId { get; set; }
         [ForeignKey("ArrivalCityId")]
-        public City ArrivalCity { get; set; }
+        public virtual City ArrivalCity { get; set; }
 
         public virtual ICollection<Comment> Comments
         {
             get { return this.comments; }
             set { this.comments = value; }
+        }
+
+        public virtual ICollection<User> JoinedPeople
+        {
+            get { return this.joinedPeople; }
+            set { this.joinedPeople = value; }
         }
     }
 }

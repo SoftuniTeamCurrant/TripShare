@@ -59,6 +59,7 @@
     <Compile Include="City.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="Notification.cs" />
+    <Compile Include="NotificationType.cs" />
     <Compile Include="PrivateMessage.cs" />
     <Compile Include="Trip.cs" />
     <Compile Include="User.cs" />
