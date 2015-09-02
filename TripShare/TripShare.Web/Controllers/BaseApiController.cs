@@ -13,7 +13,6 @@ namespace TripShare.Web.Controllers
         public BaseApiController()
             : this(new TripShareData(new TripShareDbContext()))
         {
-            
         }
 
         public BaseApiController(ITripShareData data)

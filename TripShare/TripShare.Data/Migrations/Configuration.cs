@@ -21,38 +21,38 @@ namespace TripShare.Data.Migrations
             {
                 context.Cities.Add(new City()
                 {
-                    CityName = "Turnovo"
+                    Name = "Turnovo"
                 });
 
                 context.Cities.Add(new City()
                 {
-                    CityName = "Mihaylovgrad"
+                    Name = "Mihaylovgrad"
                 });
 
                 context.Cities.Add(new City()
                 {
-                    CityName = "Ruse"
+                    Name = "Ruse"
                 });
 
                 context.Cities.Add(new City()
                 {
-                    CityName = "Varna"
+                    Name = "Varna"
                 });
 
                 context.Cities.Add(new City()
                 {
-                    CityName = "Plovdiv"
+                    Name = "Plovdiv"
                 });
 
                 context.Cities.Add(new City()
                 {
-                    CityName = "Sofiq"
+                    Name = "Sofiq"
                 });
 
 
                 context.Cities.Add(new City()
                 {
-                    CityName = "Burgas"
+                    Name = "Burgas"
                 });
 
                 context.SaveChanges();

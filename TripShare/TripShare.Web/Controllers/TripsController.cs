@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using TripShare.Models;
 
 namespace TripShare.Web.Controllers
 {
@@ -11,9 +12,9 @@ namespace TripShare.Web.Controllers
     {
         public IHttpActionResult GetTrips()
         {
-            var trips = this.Data.Trips.All();
+            var cities = this.Data.Cities.All().ToList();
 
-            return this.Ok(trips);
+            return this.Ok(cities);
         }
     }
 }

@@ -15,7 +15,7 @@
 
             var cities = data.Cities
                 .All()
-                .Select(c => c.CityName)
+                .Select(c => c.Name)
                 .ToList();
 
             foreach (var city in cities)

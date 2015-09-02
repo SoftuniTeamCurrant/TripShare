@@ -5,35 +5,40 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public class User : IdentityUser
     {
 
         private ICollection<Trip> ownTrips;
-        private ICollection<Trip> savedTrips;
+        private ICollection<Trip> joinedTrips;
+        private ICollection<Comment> comments;
 
         public User()
         {
             this.ownTrips = new HashSet<Trip>();
-            this.savedTrips = new HashSet<Trip>();
+            this.joinedTrips = new HashSet<Trip>();
+            this.comments = new HashSet<Comment>();
         }
 
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public int? Age { get; set; }
-        public int Points { get; set; }
-        public int CityId { get; set; }
-        public City HomeCity { get; set; }
+        public bool isDriver { get; set; }
 
         public virtual ICollection<Trip> OwnTrips
         {
             get { return this.ownTrips; }
             set { this.ownTrips = value; }
         }
-        public virtual ICollection<Trip> SavedTrips
+
+        public virtual ICollection<Trip> JoinedTrips
         {
-            get { return this.savedTrips; }
-            set { this.savedTrips = value; }
+            get { return this.joinedTrips; }
+            set { this.joinedTrips = value; }
+        }
+
+        public virtual ICollection<Comment> Comments
+        {
+            get { return comments; }
+            set { comments = value; }
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(

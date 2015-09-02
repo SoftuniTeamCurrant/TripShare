@@ -32,10 +32,16 @@ namespace TripShare.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.OwnTrips)
-                .WithRequired(p => p.TripOwner)
+
+            modelBuilder.Entity<Trip>()
+                .HasRequired(t => t.Driver)
+                .WithMany(u => u.OwnTrips)
+                .HasForeignKey(t => t.DriverId)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<User>()
+                .HasMany(x => x.JoinedTrips)
+                .WithMany(t => t.Passengers);
 
             base.OnModelCreating(modelBuilder);
         }

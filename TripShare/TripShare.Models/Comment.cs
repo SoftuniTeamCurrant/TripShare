@@ -11,15 +11,15 @@
         [MinLength(5)]
         public string Content { get; set; }
 
-        public DateTime PostedOn { get; set; }
+        [Required]
+        public string AuthorId { get; set; }
+
+        public virtual User Author { get; set; }
 
         public int TripId { get; set; }
 
         public virtual Trip Trip { get; set; }
 
-        [Required]
-        public string AuthorId { get; set; }
-
-        public virtual User Author { get; set; }
+        public DateTime PostedOn { get; set; }
     }
 }
