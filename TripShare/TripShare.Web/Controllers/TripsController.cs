@@ -22,6 +22,8 @@ namespace TripShare.Web.Controllers
 
         public ITripShareData Data { get; private set; }
 
+        // GET api/trips
+        [HttpGet]
         public IHttpActionResult GetTrips()
         {
             var trips = this.Data.Trips.All().Select(TripViewModel.Create); //One Query
@@ -29,6 +31,8 @@ namespace TripShare.Web.Controllers
             return this.Ok(trips);
         }
 
+        // POST api/trips
+        [HttpPost]
         public IHttpActionResult PostTrip(AddTripBindingModel model)
         {
             if (model == null)
@@ -74,7 +78,30 @@ namespace TripShare.Web.Controllers
                 .FirstOrDefault();
 
             return this.Ok(data);
+        }
 
+        // DELETE api/trips/{id}
+        [HttpDelete]
+        public IHttpActionResult DeleteTrip(int id)
+        {
+            var trip = this.Data.Trips.Find(id);
+
+            if (trip == null)
+            {
+                return this.BadRequest(string.Format("There is no trip with Id: {0}", id));
+            }
+
+            var loggedUserId = this.User.Identity.GetUserId();
+
+            if (trip.DriverId != loggedUserId)
+            {
+                return this.Unauthorized();
+            }
+
+            this.Data.Trips.Delete(trip);
+            this.Data.SaveChanges();
+
+            return this.Ok();
         }
     }
 }
