@@ -53,7 +53,6 @@ namespace TripShare.Data.Migrations
 
         private void SeedNotifications(TripShareDbContext context)
         {
-            var firstUser = context.Users.FirstOrDefault(u => u.UserName.Equals("bigSmoke"));
             var secondUser = context.Users.FirstOrDefault(u => u.UserName.Equals("secondUser"));
 
             var notification = new Notification()
@@ -62,6 +61,9 @@ namespace TripShare.Data.Migrations
                 RecieverId = secondUser.Id,
                 Type = NotificationType.Message
             };
+
+            context.Notifications.Add(notification);
+            context.SaveChanges();
         }
 
         private void SeedPrivateMessages(TripShareDbContext context)
