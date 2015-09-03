@@ -30,7 +30,6 @@ namespace TripShare.Web
             kernel.Bind<ITripShareData>().To<TripShareData>()
                 .WithConstructorArgument("context", c => new TripShareDbContext());
 
-
             return kernel;
         }
     }
