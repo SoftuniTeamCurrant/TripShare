@@ -80,6 +80,52 @@ namespace TripShare.Web.Controllers
             return this.Ok(data);
         }
 
+        // PUT api/trips/{id}
+        [HttpPut]
+        public IHttpActionResult UpdateTrip(int id, AddTripBindingModel model)
+        {
+            var trip = this.Data.Trips.Find(id);
+
+            if (trip == null)
+            {
+                return this.BadRequest(string.Format("There is no trip with Id {0}", id));
+            }
+
+            var loggedUserId = this.User.Identity.GetUserId();
+
+            if (trip.DriverId != loggedUserId)
+            {
+                return this.Unauthorized();
+            }
+
+            if (model == null)
+            {
+                return this.BadRequest("Model cannot be null (no data in request)");
+            }
+
+            if (!this.ModelState.IsValid)
+            {
+                return this.BadRequest(this.ModelState);
+            }
+
+            trip.ArrivalCityId = model.ArrivalCityId;
+            trip.DepartureCityId = model.DepartureCityId;
+            trip.DepartureDate = model.DepartureDate;
+            trip.AvailableSeats = model.AvaibleSeats;
+            trip.Description = model.Description;
+            trip.Title = model.Title;
+
+            this.Data.SaveChanges();
+
+            var data = this.Data.Trips
+                .All().Where(t => t.Id == trip.Id)
+                .Select(TripViewModel.Create)
+                .FirstOrDefault();
+
+            return this.Ok(data);
+
+        }
+
         // DELETE api/trips/{id}
         [HttpDelete]
         public IHttpActionResult DeleteTrip(int id)
@@ -88,7 +134,7 @@ namespace TripShare.Web.Controllers
 
             if (trip == null)
             {
-                return this.BadRequest(string.Format("There is no trip with Id: {0}", id));
+                return this.BadRequest(string.Format("There is no trip with Id {0}", id));
             }
 
             var loggedUserId = this.User.Identity.GetUserId();
