@@ -105,6 +105,7 @@ namespace TripShare.Data.Migrations
         private void SeedTrips(TripShareDbContext context)
         {
             var driver = context.Users.FirstOrDefault(u => u.UserName.Equals("secondUser"));
+            var passenger = context.Users.FirstOrDefault(u => u.UserName.Equals("bigSmoke"));
             var departureCity = context.Cities.FirstOrDefault(c => c.Name.Equals("Turnovo"));
             var arrivalCity = context.Cities.FirstOrDefault(c => c.Name.Equals("Ruse"));
 
@@ -118,8 +119,11 @@ namespace TripShare.Data.Migrations
                 DepartureCity = departureCity,
                 ArrivalCityId = arrivalCity.Id,
                 ArrivalCity = arrivalCity,
-                DepartureDate = new DateTime(2015, 9, 3, 12, 0, 0)
+                DepartureDate = new DateTime(2015, 9, 3, 12, 0, 0),
             };
+
+            trip.Passengers.Add(passenger);
+
 
             var secondTrip = new Trip()
             {

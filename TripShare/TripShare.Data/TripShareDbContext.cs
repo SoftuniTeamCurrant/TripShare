@@ -15,8 +15,7 @@ namespace TripShare.Data
         public TripShareDbContext()
             : base("TripShare", throwIfV1Schema: false)
         {
-            Database.SetInitializer(
-                new MigrateDatabaseToLatestVersion<TripShareDbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<TripShareDbContext, Configuration>());
         }
 
         public virtual IDbSet<Trip> Trips { get; set; }

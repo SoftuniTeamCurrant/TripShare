@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Cities</h2>
+
+<div ng-controller="mainController">
+    <ul>
+        <li ng-repeat="city in cities">{{ city.name }}</li>
+    </ul>
+</div>
