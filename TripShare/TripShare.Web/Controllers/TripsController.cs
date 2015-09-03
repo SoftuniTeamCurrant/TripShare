@@ -6,9 +6,11 @@ using System.Net.Http;
 using System.Web.Http;
 using TripShare.Data;
 using TripShare.Models;
+using TripShare.Web.Models.ViewModels;
 
 namespace TripShare.Web.Controllers
 {
+    [Authorize]
     public class TripsController : ApiController
     {
         public TripsController(ITripShareData data)
@@ -20,9 +22,9 @@ namespace TripShare.Web.Controllers
 
         public IHttpActionResult GetTrips()
         {
-            var cities = this.Data.Cities.All().ToList();
+            var trips = this.Data.Trips.All().Select(TripViewModel.Create);
 
-            return this.Ok(cities);
+            return this.Ok(trips);
         }
     }
 }
