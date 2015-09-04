@@ -65,8 +65,17 @@
                 TripId = id
             };
 
+
+            var notification = new Notification()
+            {
+                RecieverId = trip.DriverId,
+                Type = NotificationType.Comment
+            };
+
             trip.Comments.Add(comment);
+            this.Data.Notifications.Add(notification);
             this.Data.SaveChanges();
+
 
             var data = this.Data.Comments
                 .All().Where(t => t.Id == comment.Id)
@@ -106,6 +115,14 @@
             }
 
             comment.Content = model.Content;
+
+            var notification = new Notification()
+            {
+                RecieverId = comment.Trip.DriverId,
+                Type = NotificationType.Comment
+            };
+
+            this.Data.Notifications.Add(notification);
             this.Data.SaveChanges();
 
             var data = this.Data.Comments
