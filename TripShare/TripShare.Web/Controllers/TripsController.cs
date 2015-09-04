@@ -50,12 +50,12 @@ namespace TripShare.Web.Controllers
 
             if (departureCity == null)
             {
-                return this.BadRequest("Departure city does not exsist!");
+                return this.BadRequest("Departure city does not exist!");
             }
 
             if (arrivalCity == null)
             {
-                return this.BadRequest("Arrival city does not exsist!");
+                return this.BadRequest("Arrival city does not exist!");
             }
 
             var trip = new Trip()
@@ -148,6 +148,54 @@ namespace TripShare.Web.Controllers
             this.Data.SaveChanges();
 
             return this.Ok();
+        }
+
+        [AllowAnonymous]
+        // GET api/trips/search
+        [HttpGet]
+        [Route("api/trips/search")]
+        public IHttpActionResult SearchTrip(
+            [FromUri]TripSearchBindingModel model)
+        {
+            if (model == null)
+            {
+                return this.BadRequest("TripsSearchBinding model cannot be null. DepartureDate and DepartureCity are mandatory URI parameters");
+            }
+
+            if (!this.ModelState.IsValid)
+            {
+                return this.BadRequest(this.ModelState);
+            }
+
+            var tripsSearchReults = this.Data.Trips.All().Select(TripViewModel.Create);
+
+            if (model.DepartureCity == null)
+            {
+                return this.BadRequest("Departure city cannot be empty");
+            }
+            //Suggest: Change DeparuteDate to mandatory
+            if (model.DepartureDate != null)
+            {
+                tripsSearchReults = tripsSearchReults
+                    .Where(u => u.DepartureTime == model.DepartureDate);
+            }
+
+            tripsSearchReults = tripsSearchReults
+               .Where(u => u.DepartureCityName == model.DepartureCity);
+            
+            if (model.AvaibleSeats.HasValue)
+            {
+                tripsSearchReults = tripsSearchReults
+                    .Where(u => u.AvailableSeats == model.AvaibleSeats);
+            }
+
+            if (model.ArrivalCity != null)
+            {
+                tripsSearchReults = tripsSearchReults
+                    .Where(u => u.ArrivalCityName == model.ArrivalCity);
+            }
+
+            return this.Ok(tripsSearchReults);
         }
     }
 }
