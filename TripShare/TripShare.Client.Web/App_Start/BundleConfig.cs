@@ -19,6 +19,7 @@
                 .Include(LibrariesPath + "jquery-1.9.0.js")
                 .Include(LibrariesPath + "modernizr-2.6.2.js")
                 .Include(LibrariesPath + "angular.js")
+                .Include(LibrariesPath + "angular-route.js")
                 .Include(AngularAppRoot + "app.js")
                 .IncludeDirectory(AngularAppRoot, "*.js", searchSubdirectories: true);
 

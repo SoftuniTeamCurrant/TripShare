@@ -1,21 +1,13 @@
-﻿var myApp = angular.module('myApp', []);
+﻿var myApp = angular.module('TripShare', ['ngRoute']);
 
-myApp.controller('mainController', function ($scope, $http) {
-    $scope.function = $http.get('http://localhost:54118/api/trips')
-        .success(function (result) {
-            $scope.cities = result;
+myApp.constant('baseServiceUrl', 'http://localhost:54118/api')
+
+myApp.config(function ($routeProvider) {
+    $routeProvider
+        .when('/', {
+            templateUrl: '/content/partials/login-form.html',
+            controller: 'UsersController'
         });
 
-    $scope.login = function () {
-        var loginData = $scope.LoginData;
-        $http.post('http://localhost:54118/token', 'username=' + loginData.username +
-            '&password=' + loginData.password + '&grant_type=password',
-            { headers: { "Content-Type": "application/x-www-form-urlencoded" } })
-            .success(function(result) {
-                console.log(result);
-            })
-            .error(function(err) {
-                console.log(err);
-            });
-    }
+    $routeProvider.otherwise({ redirectTo: '/' });
 });

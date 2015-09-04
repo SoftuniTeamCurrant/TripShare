@@ -103,7 +103,10 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\app\controllers\usersController.js" />
+    <Content Include="Scripts\app\services\usersService.js" />
     <Content Include="Scripts\vendor\angular-mocks.js" />
+    <Content Include="Scripts\vendor\angular-route.js" />
     <Content Include="Scripts\vendor\angular.js" />
     <Content Include="Scripts\vendor\angular.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -145,10 +148,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\app\controllers\" />
     <Folder Include="Scripts\app\directives\" />
     <Folder Include="Scripts\app\filters\" />
-    <Folder Include="Scripts\app\services\" />
     <Folder Include="Scripts\app\views\" />
   </ItemGroup>
   <PropertyGroup>
