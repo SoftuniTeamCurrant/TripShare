@@ -49,7 +49,7 @@
             
             if (trip == null)
             {
-                return this.BadRequest("Trip does not excist");                
+                return this.BadRequest("Trip does not exist");                
             }
 
             if (!this.ModelState.IsValid)
@@ -74,6 +74,30 @@
                 .FirstOrDefault();
 
             return this.Ok(data);
+        }
+
+        // Delete api/comments/{id}
+        [HttpDelete]
+        [Route("api/comments/{id}")]
+        public IHttpActionResult DeleteComment(int id)
+        {
+            var comment = this.Data.Comments.Find(id);
+            var loggedUserId = this.User.Identity.GetUserId();
+            if (comment == null)
+            {
+                return this.BadRequest("Comment does not exist!");
+            }
+
+            if (comment.AuthorId != loggedUserId &&
+                comment.Trip.DriverId != loggedUserId)
+            {
+                return this.Unauthorized();
+            }
+
+            this.Data.Comments.Delete(comment);
+            this.Data.SaveChanges();
+
+            return this.Ok();
         }
     }
 }
