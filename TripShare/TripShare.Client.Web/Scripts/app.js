@@ -8,10 +8,11 @@ myApp.controller('mainController', function ($scope, $http) {
 
     $scope.login = function () {
         var loginData = $scope.LoginData;
-        loginData['grant_type'] = 'password';
-        $http.post('http://localhost:54118/token', loginData, { headers: { "Content-Type": "application/x-www-form-urlencoded" } })
+        $http.post('http://localhost:54118/token', 'username=' + loginData.username +
+            '&password=' + loginData.password + '&grant_type=password',
+            { headers: { "Content-Type": "application/x-www-form-urlencoded" } })
             .success(function(result) {
-                $scope.UserData = result;
+                console.log(result);
             })
             .error(function(err) {
                 console.log(err);
