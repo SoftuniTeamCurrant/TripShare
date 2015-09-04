@@ -2,7 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class CommentBindingModel
+    public class AddCommentBindingModel
     {
         [Required]
         [MinLength(5)]

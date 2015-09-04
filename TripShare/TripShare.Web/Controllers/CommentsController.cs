@@ -38,7 +38,7 @@
         // POST api/comments/{id}
         [Route("api/trips/{id}/comments")]
         [HttpPost]
-        public IHttpActionResult PostComment(int id, CommentBindingModel model)
+        public IHttpActionResult PostComment(int id, AddCommentBindingModel model)
         {
             var trip = this.Data.Trips.Find(id);
 
@@ -76,7 +76,47 @@
             return this.Ok(data);
         }
 
-        // Delete api/comments/{id}
+        // PUT api/comments/{id}
+        [HttpPut]
+        [Route("api/comments/{id}")]
+        public IHttpActionResult UpdateComment(int id, AddCommentBindingModel model)
+        {
+            var comment = this.Data.Comments.Find(id);
+
+            if (comment == null)
+            {
+                return this.BadRequest(string.Format("There is no comment with Id {0}", id));
+            }
+
+            var loggedUserId = this.User.Identity.GetUserId();
+
+            if (comment.AuthorId != loggedUserId)
+            {
+                return this.Unauthorized();
+            }
+
+            if (model == null)
+            {
+                return this.BadRequest("Model cannot be null (no data in request)");
+            }
+
+            if (!this.ModelState.IsValid)
+            {
+                return this.BadRequest(this.ModelState);
+            }
+
+            comment.Content = model.Content;
+            this.Data.SaveChanges();
+
+            var data = this.Data.Comments
+                .All().Where(t => t.Id == comment.Id)
+                .Select(CommentViewModel.Create)
+                .FirstOrDefault();
+
+            return this.Ok(data);
+        }
+
+        // DELETE api/comments/{id}
         [HttpDelete]
         [Route("api/comments/{id}")]
         public IHttpActionResult DeleteComment(int id)
