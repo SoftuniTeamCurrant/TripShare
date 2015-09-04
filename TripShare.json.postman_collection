@@ -1,0 +1,320 @@
+{
+	"id": "20223cd8-3da7-387f-1188-c7fb94ac20ec",
+	"name": "TripShare",
+	"description": "",
+	"order": [
+		"6e7e0c65-0fcc-9511-b7a6-76568f7a22fa",
+		"8995e76f-f18b-0b65-c5da-a2ce7ef2e4c6",
+		"524da829-8e42-5a9f-9175-9734585c4921",
+		"b926fc51-c3bd-0ea0-3e9a-063266b5a17a",
+		"975010f3-e40b-0363-c547-2f7038662ce1",
+		"48d878dc-2a92-57fc-c1fe-e758ad2e3d69",
+		"08fe53a3-8483-d94c-4b1c-29d0ec0a33cc",
+		"815f94bb-2df1-cc79-fea1-a76e4b51b0de",
+		"064f9539-b63a-51f9-8120-524d8e9c05ac"
+	],
+	"folders": [],
+	"timestamp": 1441287782176,
+	"owner": "121937",
+	"remoteLink": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "064f9539-b63a-51f9-8120-524d8e9c05ac",
+			"headers": "Authorization: bearer Eer0UiglSFSCJNhrNzbGuP2R8hhYPymzv_fGoz0otS4GWA3h1aspdtk0ibpcp0UTin9_Iax6vxSnJxZ7mBObz25iFwEUG-uyCo2mZiKrcVXW2C72HzH8rN0nEd6Nq23ZwZBC-DOcTtdQVKuoFba1qhuGsre78IJYhEPo6pyi5ueN0d2tHXFtRwU5UHtpMX_bZ78WUYq2ZMQqe6JxcvW18fmN3XgVrMxt7cOyIxwR2BdMIUkmfq155WcRFK8RHfPqNJzEhgPSxrD4qzgxrg896obVu3fNy6QeRFyw2VdEAlg9WVF5vP4dCI6Q9_NIwn07Xsh8lk1u1P0LLVSVIC6TOTJ7uCm22NCPv0OdrUuENxQ2rjX15D0YQ1W0PzcFKuoOx7DLDaegDO3x-huHzDeSx-nrhfQSzPIVCENHQVTx9qUJsQ7n0tJ6dnmtQ3KoyuUTBeDdPbqBGXIP5MuMo3zKQ6IAMI7X4saPB0pIJ-U3EKA\n",
+			"url": "http://localhost:54118/api/comments/11",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "PUT",
+			"collectionId": "20223cd8-3da7-387f-1188-c7fb94ac20ec",
+			"data": [
+				{
+					"key": "Content",
+					"value": "Smqna na teksta 2",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "Update Comment",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1441359445744,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "08fe53a3-8483-d94c-4b1c-29d0ec0a33cc",
+			"headers": "Authorization: bearer Eer0UiglSFSCJNhrNzbGuP2R8hhYPymzv_fGoz0otS4GWA3h1aspdtk0ibpcp0UTin9_Iax6vxSnJxZ7mBObz25iFwEUG-uyCo2mZiKrcVXW2C72HzH8rN0nEd6Nq23ZwZBC-DOcTtdQVKuoFba1qhuGsre78IJYhEPo6pyi5ueN0d2tHXFtRwU5UHtpMX_bZ78WUYq2ZMQqe6JxcvW18fmN3XgVrMxt7cOyIxwR2BdMIUkmfq155WcRFK8RHfPqNJzEhgPSxrD4qzgxrg896obVu3fNy6QeRFyw2VdEAlg9WVF5vP4dCI6Q9_NIwn07Xsh8lk1u1P0LLVSVIC6TOTJ7uCm22NCPv0OdrUuENxQ2rjX15D0YQ1W0PzcFKuoOx7DLDaegDO3x-huHzDeSx-nrhfQSzPIVCENHQVTx9qUJsQ7n0tJ6dnmtQ3KoyuUTBeDdPbqBGXIP5MuMo3zKQ6IAMI7X4saPB0pIJ-U3EKA\n",
+			"url": "http://localhost:54118/api/trips/1/comments",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1441359040177,
+			"name": "Add Comment To Trip",
+			"description": "",
+			"collectionId": "20223cd8-3da7-387f-1188-c7fb94ac20ec",
+			"responses": []
+		},
+		{
+			"id": "48d878dc-2a92-57fc-c1fe-e758ad2e3d69",
+			"headers": "Authorization: bearer Eer0UiglSFSCJNhrNzbGuP2R8hhYPymzv_fGoz0otS4GWA3h1aspdtk0ibpcp0UTin9_Iax6vxSnJxZ7mBObz25iFwEUG-uyCo2mZiKrcVXW2C72HzH8rN0nEd6Nq23ZwZBC-DOcTtdQVKuoFba1qhuGsre78IJYhEPo6pyi5ueN0d2tHXFtRwU5UHtpMX_bZ78WUYq2ZMQqe6JxcvW18fmN3XgVrMxt7cOyIxwR2BdMIUkmfq155WcRFK8RHfPqNJzEhgPSxrD4qzgxrg896obVu3fNy6QeRFyw2VdEAlg9WVF5vP4dCI6Q9_NIwn07Xsh8lk1u1P0LLVSVIC6TOTJ7uCm22NCPv0OdrUuENxQ2rjX15D0YQ1W0PzcFKuoOx7DLDaegDO3x-huHzDeSx-nrhfQSzPIVCENHQVTx9qUJsQ7n0tJ6dnmtQ3KoyuUTBeDdPbqBGXIP5MuMo3zKQ6IAMI7X4saPB0pIJ-U3EKA\n",
+			"url": "http://localhost:54118/api/trips/2/comments",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1441358206847,
+			"name": "Get Trip Comments",
+			"description": "",
+			"collectionId": "20223cd8-3da7-387f-1188-c7fb94ac20ec",
+			"responses": []
+		},
+		{
+			"id": "524da829-8e42-5a9f-9175-9734585c4921",
+			"headers": "Authorization: bearer 04FZT4WBGGq05B74zSL2mRJsFsoqZvA42G_CXyKvuUlr3OnSpx56EQ-IoKiJ_pSlDaD4SpQKtGZg2-DJ-A5OwWa56yIqkeljmMT0fadOcsWpr-rUDuSdpiwOZyeORsTbtpfwUdzJkEBSxFHw2wzHHQH0PIo2Z7NtDNmWaMQrVQXxIT8MYE9r5vuHkbCbU2SRJdp5yBurEirT4aXKLfazKjcIcxuLtjic6OI_ZEIpvdk-faqxvnUhL9h_n5dAX0z1UMelmhDPZYQXn4KhfF7iXYuqOl4EseLFQ4oFzozZxfHp0cS_o5lNiwnx67iDFr7zMy0haJyj04ApOj26Hlrwzg42CwvUQy-CIN-Xo15BOZfZ_nQapjUzTjyehB7hBrj3mmKPvEVcsKx_IrUsGMJxTzJmewYJS1DPXfY3zuYC7chJmNbGZPLvDXkj18po6UmYONdVPcgDv-rWwXnBXKmfB_TgcWaKWUXpNIWjh1Xhcg0\n",
+			"url": "http://localhost:54118/api/trips",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"collectionId": "20223cd8-3da7-387f-1188-c7fb94ac20ec",
+			"data": [
+				{
+					"key": "AvaibleSeats",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "DepartureCityId",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "ArrivalCityId",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Title",
+					"value": "Changed title",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Description",
+					"value": "changed description",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "Get All Trips",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1441287954390,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "6e7e0c65-0fcc-9511-b7a6-76568f7a22fa",
+			"headers": "Authorization: bearer 04FZT4WBGGq05B74zSL2mRJsFsoqZvA42G_CXyKvuUlr3OnSpx56EQ-IoKiJ_pSlDaD4SpQKtGZg2-DJ-A5OwWa56yIqkeljmMT0fadOcsWpr-rUDuSdpiwOZyeORsTbtpfwUdzJkEBSxFHw2wzHHQH0PIo2Z7NtDNmWaMQrVQXxIT8MYE9r5vuHkbCbU2SRJdp5yBurEirT4aXKLfazKjcIcxuLtjic6OI_ZEIpvdk-faqxvnUhL9h_n5dAX0z1UMelmhDPZYQXn4KhfF7iXYuqOl4EseLFQ4oFzozZxfHp0cS_o5lNiwnx67iDFr7zMy0haJyj04ApOj26Hlrwzg42CwvUQy-CIN-Xo15BOZfZ_nQapjUzTjyehB7hBrj3mmKPvEVcsKx_IrUsGMJxTzJmewYJS1DPXfY3zuYC7chJmNbGZPLvDXkj18po6UmYONdVPcgDv-rWwXnBXKmfB_TgcWaKWUXpNIWjh1Xhcg0\n",
+			"url": "http://localhost:54118/api/trips/4",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "DELETE",
+			"collectionId": "20223cd8-3da7-387f-1188-c7fb94ac20ec",
+			"data": [],
+			"dataMode": "params",
+			"name": "Delete Trip",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1441287829971,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "815f94bb-2df1-cc79-fea1-a76e4b51b0de",
+			"headers": "Authorization: bearer Eer0UiglSFSCJNhrNzbGuP2R8hhYPymzv_fGoz0otS4GWA3h1aspdtk0ibpcp0UTin9_Iax6vxSnJxZ7mBObz25iFwEUG-uyCo2mZiKrcVXW2C72HzH8rN0nEd6Nq23ZwZBC-DOcTtdQVKuoFba1qhuGsre78IJYhEPo6pyi5ueN0d2tHXFtRwU5UHtpMX_bZ78WUYq2ZMQqe6JxcvW18fmN3XgVrMxt7cOyIxwR2BdMIUkmfq155WcRFK8RHfPqNJzEhgPSxrD4qzgxrg896obVu3fNy6QeRFyw2VdEAlg9WVF5vP4dCI6Q9_NIwn07Xsh8lk1u1P0LLVSVIC6TOTJ7uCm22NCPv0OdrUuENxQ2rjX15D0YQ1W0PzcFKuoOx7DLDaegDO3x-huHzDeSx-nrhfQSzPIVCENHQVTx9qUJsQ7n0tJ6dnmtQ3KoyuUTBeDdPbqBGXIP5MuMo3zKQ6IAMI7X4saPB0pIJ-U3EKA\n",
+			"url": "http://localhost:54118/api/comments/9",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "DELETE",
+			"collectionId": "20223cd8-3da7-387f-1188-c7fb94ac20ec",
+			"data": [],
+			"dataMode": "params",
+			"name": "Delete Comment",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1441359006914,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "8995e76f-f18b-0b65-c5da-a2ce7ef2e4c6",
+			"headers": "",
+			"url": "http://localhost:54118/Token",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "POST",
+			"collectionId": "20223cd8-3da7-387f-1188-c7fb94ac20ec",
+			"data": [
+				{
+					"key": "Username",
+					"value": "Motikarq",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Password",
+					"value": "123456aA!",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "grant_type",
+					"value": "password",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "Login",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1441287932686,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "975010f3-e40b-0363-c547-2f7038662ce1",
+			"headers": "Authorization: bearer 04FZT4WBGGq05B74zSL2mRJsFsoqZvA42G_CXyKvuUlr3OnSpx56EQ-IoKiJ_pSlDaD4SpQKtGZg2-DJ-A5OwWa56yIqkeljmMT0fadOcsWpr-rUDuSdpiwOZyeORsTbtpfwUdzJkEBSxFHw2wzHHQH0PIo2Z7NtDNmWaMQrVQXxIT8MYE9r5vuHkbCbU2SRJdp5yBurEirT4aXKLfazKjcIcxuLtjic6OI_ZEIpvdk-faqxvnUhL9h_n5dAX0z1UMelmhDPZYQXn4KhfF7iXYuqOl4EseLFQ4oFzozZxfHp0cS_o5lNiwnx67iDFr7zMy0haJyj04ApOj26Hlrwzg42CwvUQy-CIN-Xo15BOZfZ_nQapjUzTjyehB7hBrj3mmKPvEVcsKx_IrUsGMJxTzJmewYJS1DPXfY3zuYC7chJmNbGZPLvDXkj18po6UmYONdVPcgDv-rWwXnBXKmfB_TgcWaKWUXpNIWjh1Xhcg0\n",
+			"url": "http://localhost:54118/api/trips/11",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "PUT",
+			"collectionId": "20223cd8-3da7-387f-1188-c7fb94ac20ec",
+			"data": [
+				{
+					"key": "Description",
+					"value": "changed description",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "AvaibleSeats",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "DepartureCityId",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "ArrivalCityId",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Title",
+					"value": "Changed title",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "Update Trip",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1441288249009,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "b926fc51-c3bd-0ea0-3e9a-063266b5a17a",
+			"headers": "Authorization: bearer 04FZT4WBGGq05B74zSL2mRJsFsoqZvA42G_CXyKvuUlr3OnSpx56EQ-IoKiJ_pSlDaD4SpQKtGZg2-DJ-A5OwWa56yIqkeljmMT0fadOcsWpr-rUDuSdpiwOZyeORsTbtpfwUdzJkEBSxFHw2wzHHQH0PIo2Z7NtDNmWaMQrVQXxIT8MYE9r5vuHkbCbU2SRJdp5yBurEirT4aXKLfazKjcIcxuLtjic6OI_ZEIpvdk-faqxvnUhL9h_n5dAX0z1UMelmhDPZYQXn4KhfF7iXYuqOl4EseLFQ4oFzozZxfHp0cS_o5lNiwnx67iDFr7zMy0haJyj04ApOj26Hlrwzg42CwvUQy-CIN-Xo15BOZfZ_nQapjUzTjyehB7hBrj3mmKPvEVcsKx_IrUsGMJxTzJmewYJS1DPXfY3zuYC7chJmNbGZPLvDXkj18po6UmYONdVPcgDv-rWwXnBXKmfB_TgcWaKWUXpNIWjh1Xhcg0\n",
+			"url": "http://localhost:54118/api/trips",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "POST",
+			"collectionId": "20223cd8-3da7-387f-1188-c7fb94ac20ec",
+			"data": [
+				{
+					"key": "Title",
+					"value": "SLab titlesefsefse",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "AvaibleSeats",
+					"value": "5",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "DepartureCityId",
+					"value": "2",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "ArrivalCityId",
+					"value": "6",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Description",
+					"value": "Pesho e mnogo lud shafiyorfafse",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "Post Trip",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1441287979342,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}
