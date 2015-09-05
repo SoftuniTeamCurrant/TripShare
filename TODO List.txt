@@ -1,0 +1,8 @@
+TODO LIST:
+
+1. Test search trips.
+2. Implement my GetMyTrips service.
+3. Join trip service (with notifications ? )
+4. Leave trip service (with notifications ? )
+5. Get Profile Data service
+6. Edit Profile Data

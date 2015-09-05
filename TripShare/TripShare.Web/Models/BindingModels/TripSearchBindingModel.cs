@@ -5,8 +5,6 @@
 
     public class TripSearchBindingModel
     {           
-        public byte? AvaibleSeats { get; set; }
-
         public DateTime? DepartureDate { get; set; }
 
         [Required]

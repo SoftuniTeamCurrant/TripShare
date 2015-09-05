@@ -167,32 +167,15 @@ namespace TripShare.Web.Controllers
                 return this.BadRequest(this.ModelState);
             }
 
-            var tripsSearchReults = this.Data.Trips.All().Select(TripViewModel.Create);
+            var tripsSearchReults = this.Data.Trips.All()
+                .Where(t => t.DepartureCity.Name == model.DepartureCity && t.ArrivalCity.Name == model.ArrivalCity)
+                .Select(TripViewModel.Create);
 
-            if (model.DepartureCity == null)
-            {
-                return this.BadRequest("Departure city cannot be empty");
-            }
             //Suggest: Change DeparuteDate to mandatory
             if (model.DepartureDate != null)
             {
                 tripsSearchReults = tripsSearchReults
                     .Where(u => u.DepartureTime == model.DepartureDate);
-            }
-
-            tripsSearchReults = tripsSearchReults
-               .Where(u => u.DepartureCityName == model.DepartureCity);
-            
-            if (model.AvaibleSeats.HasValue)
-            {
-                tripsSearchReults = tripsSearchReults
-                    .Where(u => u.AvailableSeats == model.AvaibleSeats);
-            }
-
-            if (model.ArrivalCity != null)
-            {
-                tripsSearchReults = tripsSearchReults
-                    .Where(u => u.ArrivalCityName == model.ArrivalCity);
             }
 
             return this.Ok(tripsSearchReults);
