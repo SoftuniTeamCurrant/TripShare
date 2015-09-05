@@ -1,0 +1,44 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <nav class="nav">
+            <ul class="nav-pills">
+                <li>
+                    <a href="#/home">Home</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <a class="col-md-3 col-md-offset-2 btn btn-success btn-lg" href="#/trips/create">
+                Create trip
+            </a>
+            <a class="col-md-3 col-md-offset-2 btn btn-success btn-lg" href="#/trips/my-trips">
+                My trips
+            </a>
+        </div>
+        <div class="row top-marg-24">
+            <div class="col-md-12">
+                <form class="form-inline row">
+                    <div class="form-group col-md-3">
+                        <label for="fromCity">From city:</label>
+                        <input type="text" class="form-control input-lg" id="fromCity" placeholder="eg.: Turnovo">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="toCity">To city</label>
+                        <input type="text" class="form-control input-lg" id="toCity" placeholder="eg.: Burgas">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="onDate">On date(not mandatory):</label>
+                        <input type="date" class="form-control input-lg" id="onDate" />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <button onclick="console.log('no');" class="col-md-12 btn btn-primary btn-lg top-marg-24">Search trip</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

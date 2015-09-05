@@ -14,11 +14,12 @@
                 console.log('Successfully logged in!');
                 usersService.SetCredentials(serverData);
                 ClearData();
+                $location.path('/home');
             },
             function (serverError) {
                 console.log('Unsuccessful login! <br/>' + serverError.error_description);
                 console.log(serverError);
+
             });
     };
-
 });

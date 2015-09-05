@@ -7,7 +7,11 @@ myApp.config(function ($routeProvider) {
         .when('/', {
             templateUrl: '/content/partials/login-form.html',
             controller: 'UsersController'
-        });
+        })
+        .when('/home', {
+            templateUrl: '/content/partials/home.html',
+            controller: 'UsersController'
+        })
 
     $routeProvider.otherwise({ redirectTo: '/' });
 });
