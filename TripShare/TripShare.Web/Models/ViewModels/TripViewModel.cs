@@ -1,10 +1,12 @@
-﻿using System;
-using System.Linq.Expressions;
-using Microsoft.Ajax.Utilities;
-using TripShare.Models;
+﻿using System.Linq;
 
 namespace TripShare.Web.Models.ViewModels
 {
+    using System;
+    using System.Linq.Expressions;
+    using System.Collections.Generic;
+    using Microsoft.Ajax.Utilities;
+    using TripShare.Models;
     public class TripViewModel
     {
         public string Title { get; set; }
@@ -21,6 +23,8 @@ namespace TripShare.Web.Models.ViewModels
 
         public string ArrivalCityName { get; set; }
 
+        public ICollection<UserViewModel> Passengers { get; set; }
+
         public static Expression<Func<Trip, TripViewModel>> Create
         {
             get
@@ -33,7 +37,8 @@ namespace TripShare.Web.Models.ViewModels
                     AvailableSeats = p.AvailableSeats,
                     DriverName = p.Driver.UserName,
                     DepartureCityName = p.DepartureCity.Name,
-                    DepartureTime = p.DepartureDate
+                    DepartureTime = p.DepartureDate,
+                    Passengers = p.Passengers.AsQueryable().Select(UserViewModel.Create).ToList()
                 };
             }
         }
