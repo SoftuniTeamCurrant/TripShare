@@ -9,6 +9,8 @@
 
     public class UserViewModel
     {
+        public string Id { get; set; }
+
         public string UserName { get; set; }
 
         public string Email { get; set; }
@@ -21,6 +23,7 @@
             {
                 return p => new UserViewModel()
                 {
+                    Id = p.Id,
                     UserName = p.UserName,
                     Email = p.Email,
                     isDriver = p.isDriver,
