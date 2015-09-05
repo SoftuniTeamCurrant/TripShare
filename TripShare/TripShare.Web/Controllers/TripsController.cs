@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
 using TripShare.Data;
 using TripShare.Models;
@@ -152,7 +153,6 @@ namespace TripShare.Web.Controllers
             return this.Ok();
         }
 
-        [AllowAnonymous]
         // GET api/trips/search
         [HttpGet]
         [Route("api/trips/search")]
@@ -181,6 +181,19 @@ namespace TripShare.Web.Controllers
             }
 
             return this.Ok(tripsSearchReults);
+        }
+
+        // GET api/trips/myTrips
+        [HttpGet]
+        [Route("api/trips/my-trips")]
+        public IHttpActionResult GetMyTrips()
+        {
+            var userId = this.User.Identity.GetUserId();
+            var trips = this.Data.Trips.All()
+                .Where(t => t.DriverId == userId)
+                .Select(TripViewModel.Create); //One Query
+
+            return this.Ok(trips);
         }
     }
 }
