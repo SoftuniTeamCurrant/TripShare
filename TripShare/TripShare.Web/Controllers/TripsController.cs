@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -175,7 +177,7 @@ namespace TripShare.Web.Controllers
             if (model.DepartureDate != null)
             {
                 tripsSearchReults = tripsSearchReults
-                    .Where(u => u.DepartureTime == model.DepartureDate);
+                    .Where(u => DbFunctions.TruncateTime(u.DepartureTime) == DbFunctions.TruncateTime(model.DepartureDate));
             }
 
             return this.Ok(tripsSearchReults);
