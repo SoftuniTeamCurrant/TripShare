@@ -239,5 +239,32 @@ namespace TripShare.Web.Controllers
             this.Data.SaveChanges();
             return this.Ok();
         }
+
+        // PUT api/trips/{id}/leave
+        [HttpPut]
+        [Route("api/trips/{id}/leave")]
+        public IHttpActionResult LeaveTrip(int id)
+        {
+            var trip = this.Data.Trips.Find(id);
+            var user = this.Data.Users.Find(this.User.Identity.GetUserId());
+
+            if (trip == null)
+            {
+                return this.BadRequest("No such trip!");
+            }
+
+            if (!user.JoinedTrips.Any(t => t.DriverId == trip.DriverId))
+            {
+                return this.BadRequest("You are not in this trip!");
+            }
+
+            trip.AvailableSeats = ++ trip.AvailableSeats;
+            user.JoinedTrips.Remove(trip);
+            trip.Passengers.Remove(user);
+
+            this.Data.SaveChanges();
+
+            return this.Ok();
+        }
     }
 }

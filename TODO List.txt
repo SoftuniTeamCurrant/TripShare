@@ -3,6 +3,6 @@ TODO LIST:
 1. Test search trips.  (tested and fixed)
 2. Implement my GetMyTrips service. (implemented and working)
 3. Join trip service (with notifications ? ) (implemented and working)
-4. Leave trip service (with notifications ? )
+4. Leave trip service (with notifications ? ) (implemented and working)
 5. Get Profile Data service
 6. Edit Profile Data
