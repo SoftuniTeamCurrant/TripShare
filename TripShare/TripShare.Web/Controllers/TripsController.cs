@@ -195,5 +195,49 @@ namespace TripShare.Web.Controllers
 
             return this.Ok(trips);
         }
+
+        // PUT api/trips/{id}/join
+        [HttpPut]
+        [Route("api/trips/{id}/join")]
+        public IHttpActionResult JoinTrip(int id)
+        {
+            var trip = this.Data.Trips.Find(id);
+            if (trip == null)
+            {
+                return this.BadRequest("No such trip!");
+            }
+
+            if (trip.AvailableSeats == 0)
+            {
+                return this.BadRequest("Trip is full!");
+            }
+
+            var loggedUserId = this.User.Identity.GetUserId();
+            var user = this.Data.Users.Find(loggedUserId);
+
+            if (user.JoinedTrips.Any(t => t.Id == trip.Id))
+            {
+                return this.BadRequest("You have already joined this trip!");
+            }
+
+            if (loggedUserId == trip.DriverId)
+            {
+                return this.BadRequest("You cannot join your own trip!");
+            }
+
+            trip.AvailableSeats = --trip.AvailableSeats;
+            user.JoinedTrips.Add(trip);
+
+            var notification = new Notification()
+            {
+                RecieverId = trip.DriverId,
+                Type = NotificationType.Join
+            };
+
+            this.Data.Notifications.Add(notification);
+
+            this.Data.SaveChanges();
+            return this.Ok();
+        }
     }
 }
