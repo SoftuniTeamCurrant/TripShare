@@ -37,7 +37,9 @@
     $scope.searchRedirect = function () {
         var data = $scope.searchData;
         $location.path('/trips/search');
-        $location.search({ fromCity: data.fromCity, toCity: data.toCity, date: data.date ? data.date.yyyymmdd() : null });
+        if (data) {
+            $location.search({ fromCity: data.fromCity, toCity: data.toCity, date: data.date ? data.date.yyyymmdd() : null });
+        }
     }
 
     $scope.displaySearchData = function() {
@@ -49,6 +51,17 @@
         function(err) {
             console.log(err);
         });
+    }
+
+    $scope.createTrip = function () {
+        var data = $scope.createTripData;
+        tripsService.postTrip(data, function(data) {
+                console.log(data);
+            },
+            function(error) {
+                console.log(error);
+            });
+        $scope.createTripData = '';
     }
 
     Date.prototype.yyyymmdd = function () {

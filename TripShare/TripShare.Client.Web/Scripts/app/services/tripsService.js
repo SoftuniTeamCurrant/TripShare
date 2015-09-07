@@ -6,7 +6,7 @@ myApp.factory('tripsService', function ($http, baseServiceUrl, usersService) {
     var serviceUrl = baseServiceUrl + '/trips';
 
     service.getTripsSearchData = function (routeParams, success, error) {
-        if (routeParams.length) {
+        if (!routeParams.fromCity || !routeParams.toCity) {
             var date = routeParams.date ? '&DepartureDate=' + routeParams.date : '';
             $http.get(serviceUrl + '/search' +
                     '?DepartureCity=' + routeParams.fromCity +
@@ -22,6 +22,14 @@ myApp.factory('tripsService', function ($http, baseServiceUrl, usersService) {
                 })
                 .error(error);
         }
+    }
+
+    service.postTrip = function(data, success, error) {
+        $http.post(serviceUrl, data, { headers: usersService.GetHeaders() })
+            .success(function(data, status, headers, config) {
+                success(data);
+            })
+            .error(error);
     }
 
     return service;

@@ -16,6 +16,10 @@ myApp.config(function ($routeProvider) {
             templateUrl: '/content/partials/search.html',
             controller: 'UsersController'
         })
+        .when('/trips/create', {
+            templateUrl: '/content/partials/create.html',
+            controller: 'UsersController'
+        });
 
     $routeProvider.otherwise({ redirectTo: '/' });
 });
