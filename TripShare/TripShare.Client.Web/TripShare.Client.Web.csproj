@@ -102,10 +102,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\partials\home.html" />
     <Content Include="Content\partials\login-form.html" />
+    <Content Include="Content\partials\search.html" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\controllers\usersController.js" />
+    <Content Include="Scripts\app\services\tripsService.js" />
     <Content Include="Scripts\app\services\usersService.js" />
     <Content Include="Scripts\vendor\angular-mocks.js" />
     <Content Include="Scripts\vendor\angular-route.js" />

@@ -1,5 +1,16 @@
 ﻿myApp.controller('UsersController', function ($scope, $location, $routeParams, usersService, tripsService) {
 
+    var isLocationPathHome = $location.path() === "/";
+    var isUserLoggedIn = usersService.isLoggedIn();
+
+    if (!isUserLoggedIn) {
+        $location.path('/');
+    }
+
+    if (isUserLoggedIn && isLocationPathHome) {
+        $location.path('/home');
+    }
+
     var ClearData = function () {
         $scope.loginData = "";
         $scope.registerData = "";

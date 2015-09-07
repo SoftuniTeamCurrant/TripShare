@@ -25,6 +25,8 @@ namespace TripShare.Web.Models.ViewModels
 
         public ICollection<UserViewModel> Passengers { get; set; }
 
+        public int CommentsCount { get; set; }
+
         public static Expression<Func<Trip, TripViewModel>> Create
         {
             get
@@ -38,7 +40,8 @@ namespace TripShare.Web.Models.ViewModels
                     DriverName = p.Driver.UserName,
                     DepartureCityName = p.DepartureCity.Name,
                     DepartureTime = p.DepartureDate,
-                    Passengers = p.Passengers.AsQueryable().Select(UserViewModel.Create).ToList()
+                    Passengers = p.Passengers.AsQueryable().Select(UserViewModel.Create).ToList(),
+                    CommentsCount = p.Comments.Count
                 };
             }
         }
