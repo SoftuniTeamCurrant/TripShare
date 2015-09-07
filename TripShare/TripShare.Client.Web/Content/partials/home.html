@@ -24,18 +24,18 @@
                 <form class="form-inline row">
                     <div class="form-group col-md-3">
                         <label for="fromCity">From city:</label>
-                        <input type="text" class="form-control input-lg" id="fromCity" placeholder="eg.: Turnovo">
+                        <input type="text" class="form-control input-lg" id="fromCity" placeholder="eg.: Turnovo" ng-model="searchData.fromCity">
                     </div>
                     <div class="form-group col-md-3">
                         <label for="toCity">To city</label>
-                        <input type="text" class="form-control input-lg" id="toCity" placeholder="eg.: Burgas">
+                        <input type="text" class="form-control input-lg" id="toCity" placeholder="eg.: Burgas" ng-model="searchData.toCity">
                     </div>
                     <div class="form-group col-md-3">
                         <label for="onDate">On date(not mandatory):</label>
-                        <input type="date" class="form-control input-lg" id="onDate" />
+                        <input type="date" class="form-control input-lg" id="onDate" ng-model="searchData.date"/>
                     </div>
                     <div class="form-group col-md-3">
-                        <button onclick="console.log('no');" class="col-md-12 btn btn-primary btn-lg top-marg-24">Search trip</button>
+                        <button ng-click="searchRedirect(searchData);" class="col-md-12 btn btn-primary btn-lg top-marg-24">Search trip</button>
                     </div>
                 </form>
             </div>
