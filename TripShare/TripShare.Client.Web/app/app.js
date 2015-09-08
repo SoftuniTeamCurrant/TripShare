@@ -5,19 +5,19 @@ myApp.constant('baseServiceUrl', 'http://localhost:54118/api');
 myApp.config(function ($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: '/content/partials/login-form.html',
+            templateUrl: '/views/login-form.html',
             controller: 'UsersController'
         })
         .when('/home', {
-            templateUrl: '/content/partials/home.html',
+            templateUrl: '/views/home.html',
             controller: 'UsersController'
         })
         .when('/trips/search', {
-            templateUrl: '/content/partials/search.html',
+            templateUrl: '/views/search.html',
             controller: 'UsersController'
         })
         .when('/trips/create', {
-            templateUrl: '/content/partials/create.html',
+            templateUrl: '/views/create.html',
             controller: 'UsersController'
         });
 
