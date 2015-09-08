@@ -24,6 +24,7 @@
         usersService.Login($scope.loginData,
             function (serverData) {
                 console.log('Successfully logged in!');
+                $scope.UserName = serverData["userName"];
                 usersService.SetCredentials(serverData);
                 ClearData();
                 $location.path('/home');
@@ -47,7 +48,11 @@
         tripsService.getTripsSearchData($routeParams, function (data) {
                 data.forEach(function(trip) {
                     trip["isJoined"] = false;
-                    trip["Passengers"].forEach(function(passanger) {
+                    trip["isOwner"] = false;
+                    if (trip["DriverName"] === localStorage["userName"]) {
+                        trip["isOwner"] = true;
+                    }
+                    trip["Passengers"].forEach(function (passanger) {
                         if (passanger["UserName"] == localStorage["userName"]) {
                             trip["isJoined"] = true;
                         }
