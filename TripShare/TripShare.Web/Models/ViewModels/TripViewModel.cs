@@ -9,6 +9,8 @@ namespace TripShare.Web.Models.ViewModels
     using TripShare.Models;
     public class TripViewModel
     {
+        public int Id { get; set; }
+
         public string Title { get; set; }
 
         public string DriverName { get; set; }
@@ -33,6 +35,7 @@ namespace TripShare.Web.Models.ViewModels
             {
                 return p => new TripViewModel()
                 {
+                    Id = p.Id,
                     ArrivalCityName = p.ArrivalCity.Name,
                     Description = p.Description,
                     Title = p.Title,
