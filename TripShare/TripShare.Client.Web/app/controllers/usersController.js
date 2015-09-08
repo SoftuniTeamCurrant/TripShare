@@ -65,12 +65,21 @@
         $scope.createTripData = '';
     }
 
+    $scope.joinTrip = function (id) {
+        tripsService.joinTrip(id,
+            function (data) {
+                console.log("You have joined successfully");
+            },
+            function(err) {
+                console.log(err.responseText);
+        });
+    }
+
     var getAllCities = function () {
         citiesService.getAllCities(function (data) {
-            console.log(data);
             $scope.cities = data;
         }, function (err) {
-            console.log(err.responseText);
+            console.log(err);
         });
     }
 

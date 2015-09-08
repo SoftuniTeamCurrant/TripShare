@@ -10,7 +10,7 @@
                     <p>Arrival city: {{trip.ArrivalCityName}}</p>
                     <p>Seats available: {{trip.AvailableSeats}}</p>
                     <p>
-                        <a href="#" class="btn btn-primary" role="button">Join</a>
+                        <a href="#" ng-click="joinTrip(trip.Id)" class="btn btn-primary" role="button">Join</a>
                         <a href="#" class="btn btn-default" role="button">Comments<span class="badge">{{trip.CommentsCount}}</span></a>
                     </p>
                 </div>
