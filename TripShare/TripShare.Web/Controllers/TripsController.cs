@@ -266,5 +266,37 @@ namespace TripShare.Web.Controllers
 
             return this.Ok();
         }
+
+        // PUT api/trips/{id}/kick/{id}
+        [HttpPut]
+        [Route("api/trips/{id}/kick/{userId}")]
+        public IHttpActionResult Kick(int id, string userId)
+        {
+            var trip = this.Data.Trips.Find(id);
+            var userOwner = this.Data.Users.Find(this.User.Identity.GetUserId());
+            var userToKick = this.Data.Users.Find(userId);
+            if (trip == null)
+            {
+                return this.BadRequest("No such trip!");
+            }
+
+            if (trip.DriverId != userOwner.Id)
+            {
+                return this.Unauthorized();
+            }
+
+            if (!trip.Passengers.Any(t => t.Id == userId))
+            {
+                return this.BadRequest("No user with this id in this trip!");
+            }
+
+            trip.AvailableSeats = ++trip.AvailableSeats;
+            userToKick.JoinedTrips.Remove(trip);
+            trip.Passengers.Remove(userToKick);
+
+            this.Data.SaveChanges();
+
+            return this.Ok();
+        }
     }
 }
