@@ -15,7 +15,7 @@ namespace TripShare.Web.Controllers
         [Route("api/cities")]
         public IHttpActionResult GetCities()
         {
-            var citiesList = this.Data.Cities.All().Select(city => city.Name).ToList();
+            var citiesList = this.Data.Cities.All().OrderBy(c => c.Name);
 
             return this.Ok(citiesList);
 

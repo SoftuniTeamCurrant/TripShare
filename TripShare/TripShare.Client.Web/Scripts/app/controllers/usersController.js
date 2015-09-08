@@ -1,7 +1,8 @@
-﻿myApp.controller('UsersController', function ($scope, $location, $routeParams, usersService, tripsService) {
+﻿myApp.controller('UsersController', function ($scope, $location, $routeParams, usersService, tripsService, citiesService) {
 
     var isLocationPathHome = $location.path() === "/";
     var isUserLoggedIn = usersService.isLoggedIn();
+    $scope.cities = {};
 
     if (!isUserLoggedIn) {
         $location.path('/');
@@ -63,6 +64,17 @@
             });
         $scope.createTripData = '';
     }
+
+    var getAllCities = function () {
+        citiesService.getAllCities(function (data) {
+            console.log(data);
+            $scope.cities = data;
+        }, function (err) {
+            console.log(err.responseText);
+        });
+    }
+
+    $(document).ready(getAllCities());
 
     Date.prototype.yyyymmdd = function () {
         var yyyy = this.getFullYear().toString();

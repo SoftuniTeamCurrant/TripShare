@@ -107,6 +107,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\controllers\usersController.js" />
+    <Content Include="Scripts\app\services\citiesService.js" />
     <Content Include="Scripts\app\services\tripsService.js" />
     <Content Include="Scripts\app\services\usersService.js" />
     <Content Include="Scripts\vendor\angular-mocks.js" />
