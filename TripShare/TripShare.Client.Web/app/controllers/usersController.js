@@ -44,10 +44,19 @@
     }
 
     $scope.displaySearchData = function() {
-        tripsService.getTripsSearchData($routeParams, function(data) {
+        tripsService.getTripsSearchData($routeParams, function (data) {
+                data.forEach(function(trip) {
+                    trip["isJoined"] = false;
+                    trip["Passengers"].forEach(function(passanger) {
+                        if (passanger["UserName"] == localStorage["userName"]) {
+                            trip["isJoined"] = true;
+                        }
+                    });
+                });
             if (data.length) {
                 $scope.searchTripData = data;
             }
+            console.log(data);
         },
         function(err) {
             console.log(err);
@@ -69,10 +78,22 @@
         tripsService.joinTrip(id,
             function (data) {
                 console.log("You have joined successfully");
+                $(document).reload();
             },
             function(err) {
                 console.log(err.responseText);
         });
+    }
+
+    $scope.leaveTrip = function (id) {
+        tripsService.leaveTrip(id,
+            function (data) {
+                console.log("You have left successfully");
+                $(document).reload();
+            },
+            function (err) {
+                console.log(err.responseText);
+            });
     }
 
     var getAllCities = function () {
