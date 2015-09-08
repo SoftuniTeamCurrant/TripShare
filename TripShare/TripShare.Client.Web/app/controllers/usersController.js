@@ -1,4 +1,4 @@
-﻿myApp.controller('UsersController', function ($scope, $location, $routeParams, usersService, tripsService, citiesService) {
+﻿myApp.controller('UsersController', function ($scope, $location, $routeParams, $route, usersService, tripsService, citiesService) {
 
     var isLocationPathHome = $location.path() === "/";
     var isUserLoggedIn = usersService.isLoggedIn();
@@ -78,7 +78,7 @@
         tripsService.joinTrip(id,
             function (data) {
                 console.log("You have joined successfully");
-                $(document).reload();
+                $route.reload();
             },
             function(err) {
                 console.log(err.responseText);
@@ -89,7 +89,7 @@
         tripsService.leaveTrip(id,
             function (data) {
                 console.log("You have left successfully");
-                $(document).reload();
+                $route.reload();
             },
             function (err) {
                 console.log(err.responseText);
