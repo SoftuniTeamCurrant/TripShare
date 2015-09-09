@@ -113,6 +113,8 @@
         $(document).ready(getAllCities());
     }
 
+    $scope.navTemplate = '/views/nav.html';
+
     Date.prototype.yyyymmdd = function () {
         var yyyy = this.getFullYear().toString();
         var mm = (this.getMonth() + 1).toString(); // getMonth() is zero-based
