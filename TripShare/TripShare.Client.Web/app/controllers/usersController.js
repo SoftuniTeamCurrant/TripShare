@@ -109,7 +109,9 @@
         });
     }
 
-    $(document).ready(getAllCities());
+    if ($location.path() != '/') {
+        $(document).ready(getAllCities());
+    }
 
     Date.prototype.yyyymmdd = function () {
         var yyyy = this.getFullYear().toString();
