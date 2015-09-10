@@ -40,6 +40,14 @@ myApp.factory('tripsService', function ($http, baseServiceUrl, usersService) {
             .error(error);
     }
 
+    service.deleteTrip = function(id, success, error) {
+        $http.delete(serviceUrl + "/" + id, { headers: usersService.GetHeaders() })
+            .success(function (data, status, headers, config) {
+                success(data);
+            })
+            .error(error);
+    }
+
 
     service.joinTrip = function(id, success, error) {
         $http.put(serviceUrl + "/" + id + "/join", null, { headers: usersService.GetHeaders() })

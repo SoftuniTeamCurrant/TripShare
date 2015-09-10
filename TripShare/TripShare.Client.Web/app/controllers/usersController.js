@@ -116,6 +116,18 @@
             });
     }
 
+    $scope.deleteTrip = function(id)
+    {
+        tripsService.deleteTrip(id,
+            function(data) {
+                console.log("You have deleted trip with id=" + id + " successfully");
+                $route.reload();
+            },
+            function(err) {
+                console.log(err.responseText);
+            });
+    }
+
     $scope.leaveTrip = function (id) {
         tripsService.leaveTrip(id,
             function (data) {
