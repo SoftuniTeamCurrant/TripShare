@@ -12,28 +12,37 @@ myApp.factory('tripsService', function ($http, baseServiceUrl, usersService) {
                     '?DepartureCity=' + routeParams.fromCity +
                     '&ArrivalCity=' + routeParams.toCity
                     + date, { headers: usersService.GetHeaders() })
-                .success(function(data, status, headers, config) {
+                .success(function (data, status, headers, config) {
                     success(data);
                 }).error(error);
         } else {
             $http.get(serviceUrl, { headers: usersService.GetHeaders() })
-                .success(function(data, status, headers, config) {
+                .success(function (data, status, headers, config) {
                     success(data);
                 })
                 .error(error);
         }
     }
 
-    service.postTrip = function(data, success, error) {
+    service.getMyTrips = function (success, error) {
+        $http.get(serviceUrl + '/my-trips', {
+            headers: usersService.GetHeaders()
+        }).success(function (data, headers, config, status) {
+            success(data);
+        }).error(error);
+    }
+
+
+    service.postTrip = function (data, success, error) {
         $http.post(serviceUrl, data, { headers: usersService.GetHeaders() })
-            .success(function(data, status, headers, config) {
+            .success(function (data, status, headers, config) {
                 success(data);
             })
             .error(error);
     }
 
 
-    service.joinTrip = function(id, success, error) {
+    service.joinTrip = function (id, success, error) {
         $http.put(serviceUrl + "/" + id + "/join", null, { headers: usersService.GetHeaders() })
             .success(function (data, status, headers, config) {
                 success(data);

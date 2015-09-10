@@ -19,7 +19,11 @@ myApp.config(function ($routeProvider) {
         .when('/trips/create', {
             templateUrl: '/views/create.html',
             controller: 'UsersController'
-        });
+        }).when('/trips/my-trips', {
 
+            templateUrl: 'views/my-trips.html',
+            controller: 'UsersController'
+        });
+    
     $routeProvider.otherwise({ redirectTo: '/' });
 });
