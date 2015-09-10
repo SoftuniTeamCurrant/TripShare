@@ -24,9 +24,25 @@ myApp.factory('tripsService', function ($http, baseServiceUrl, usersService) {
         }
     }
 
+    service.getMyTrips = function (success, error) {
+        $http.get(serviceUrl + '/my-trips', {
+            headers: usersService.GetHeaders()
+        }).success(function (data, headers, config, status) {
+            success(data);
+        }).error(error);
+    }
+
     service.postTrip = function(data, success, error) {
         $http.post(serviceUrl, data, { headers: usersService.GetHeaders() })
             .success(function(data, status, headers, config) {
+                success(data);
+            })
+            .error(error);
+    }
+
+    service.deleteTrip = function(id, success, error) {
+        $http.delete(serviceUrl + "/" + id, { headers: usersService.GetHeaders() })
+            .success(function (data, status, headers, config) {
                 success(data);
             })
             .error(error);
@@ -51,6 +67,14 @@ myApp.factory('tripsService', function ($http, baseServiceUrl, usersService) {
 
     service.kick = function(id, userId, success, error) {
         $http.put(serviceUrl + "/" + id + "/kick/" + userId, null, { headers: usersService.GetHeaders() })
+            .success(function (data, status, headers, config) {
+                success(data);
+            })
+            .error(error);
+    }
+
+    service.addComment = function(id, data, success, error) {
+        $http.post(serviceUrl + "/" + id + "/comments", data, { headers: usersService.GetHeaders() })
             .success(function (data, status, headers, config) {
                 success(data);
             })

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripShare.Web", "TripShare.Web\TripShare.Web.csproj", "{37DA3D4B-427D-46EB-B548-D2C894D7A00D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripShare.Models", "TripShare.Models\TripShare.Models.csproj", "{E48893D4-7427-48B8-A00B-1FA30FED5A7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripShare.Data", "TripShare.Data\TripShare.Data.csproj", "{3B4F0E40-77AB-4B9E-894B-AAB1DB43FB88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37DA3D4B-427D-46EB-B548-D2C894D7A00D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37DA3D4B-427D-46EB-B548-D2C894D7A00D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37DA3D4B-427D-46EB-B548-D2C894D7A00D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37DA3D4B-427D-46EB-B548-D2C894D7A00D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E48893D4-7427-48B8-A00B-1FA30FED5A7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E48893D4-7427-48B8-A00B-1FA30FED5A7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E48893D4-7427-48B8-A00B-1FA30FED5A7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E48893D4-7427-48B8-A00B-1FA30FED5A7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B4F0E40-77AB-4B9E-894B-AAB1DB43FB88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B4F0E40-77AB-4B9E-894B-AAB1DB43FB88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B4F0E40-77AB-4B9E-894B-AAB1DB43FB88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B4F0E40-77AB-4B9E-894B-AAB1DB43FB88}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
