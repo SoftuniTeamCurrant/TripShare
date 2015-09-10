@@ -65,5 +65,13 @@ myApp.factory('tripsService', function ($http, baseServiceUrl, usersService) {
             .error(error);
     }
 
+    service.addComment = function(id, data, success, error) {
+        $http.post(serviceUrl + "/" + id + "/comments", data, { headers: usersService.GetHeaders() })
+            .success(function (data, status, headers, config) {
+                success(data);
+            })
+            .error(error);
+    }
+
     return service;
 });

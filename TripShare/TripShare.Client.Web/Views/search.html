@@ -24,6 +24,10 @@
                         <a href="#" class="btn btn-default" role="button">Comments<span class="badge">{{trip.CommentsCount}}</span></a>
                     </p>
                 </div>
+                <div class="caption">
+                    <textarea ng-model="content" rows="3" cols="40"></textarea>
+                    <a class="btn btn-primary" ng-click="addComment(trip.Id, content)" role="button">Comment</a>
+                </div>
             </div>
         </div>
         <h3 ng-if="!searchTripData">

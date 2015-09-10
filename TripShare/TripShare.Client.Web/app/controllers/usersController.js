@@ -150,6 +150,19 @@
         $(document).ready(getAllCities());
     }
 
+    $scope.addComment = function (id, content) {
+        var data = {
+            Content: content
+        }
+        tripsService.addComment(id, data, function(data) {
+                console.log("commented!");
+                $route.reload();
+            },
+            function(err) {
+                console.log(err);
+            });
+    }
+
     $scope.createTrip = function () {
         var data = {};
 
