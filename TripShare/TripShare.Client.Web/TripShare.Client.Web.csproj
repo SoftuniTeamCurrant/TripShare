@@ -96,7 +96,6 @@
     <Content Include="views\create.html" />
     <Content Include="views\home.html" />
     <Content Include="views\login-form.html" />
-    <Content Include="views\my-trips.html" />
     <Content Include="views\nav.html" />
     <Content Include="views\search.html" />
     <Content Include="Web.config" />

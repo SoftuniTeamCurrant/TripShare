@@ -4,6 +4,7 @@
         <div ng-repeat="trip in searchTripData" class="col-sm-6 col-md-4">
             <div class="thumbnail">
                 <div class="caption">
+                    <h3>{{trip.Title}}</h3>
                     <p ng-if="trip.Description">{{trip.Description}}</p>
                     <p>Driver user: {{trip.DriverName}}</p>
                     <p>Departure city: {{trip.DepartureCityName}}</p>
