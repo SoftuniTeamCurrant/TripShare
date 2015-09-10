@@ -20,9 +20,9 @@
                 <a ng-hide="trip.isJoined" ng-disabled="trip.isOwner" ng-click="joinTrip(trip.Id)" class="btn btn-primary" role="button">Join</a>
                 <a ng-show="trip.isJoined" ng-click="leaveTrip(trip.Id)" class="btn btn-danger" role="button">Leave</a>
 
-                <button class="btn btn-default" role="button" ng-click="displayCommentsContainer(trip.Id)">Comments<span class="badge">{{trip.CommentsCount}}</span></button>
+                <button class="btn btn-default" role="button" data-toggle="collapse" data-target="#commentsCollapse{{trip.Id}}" aria-expanded="false" aria-controls="commentsCollapse{{trip.Id}}">Comments<span class="badge">{{trip.CommentsCount}}</span></button>
             </p>
         </div>
-        <div ng-include="commentsTemplate" class="comments hide" data-tripId="{{trip.Id}}"></div>
+        <div ng-include="commentsTemplate" class="comments collapse" id="commentsCollapse{{trip.Id}}"></div>
     </div>
 </div>

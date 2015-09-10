@@ -1,6 +1,9 @@
-﻿<div class="caption" ng-init="getTripsCommentsData(trip.Id)">
-    <div ng-repeat=" comment in commentedTrips[trip.Id]">
-        {{comment.Content}}
+﻿<div class="caption well" ng-init="getTripsCommentsData(trip.Id)">
+    <div ng-repeat="comment in commentedTrips[trip.Id]" class="list-group">
+        <div class="list-group-item">
+            <p>{{$index + 1}}. [By: {{comment.Author}}] [{{comment.PostedOn | date:'dd/MM/yyyy HH:mm:ss'}}]</p>
+            <p>Message: {{comment.Content}}</p>
+        </div>
     </div>
     <textarea ng-model="content" rows="3" cols="40"></textarea>
     <a class="btn btn-primary" ng-click="addComment(trip.Id, content)" role="button">Comment</a>

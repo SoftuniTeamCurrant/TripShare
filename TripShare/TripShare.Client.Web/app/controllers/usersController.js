@@ -220,15 +220,6 @@
         });
     };
 
-    $scope.displayCommentsContainer = function (tripId) {
-        var element = $('.comments[data-tripId=' + tripId + ']');
-        if (element.hasClass('hide')) {
-            element.removeClass('hide');
-        } else {
-            element.addClass('hide');
-        };
-    }
-
     $scope.commentedTrips = [];
 
     $scope.getTripsCommentsData = function (tripId) {
