@@ -24,6 +24,14 @@ myApp.factory('tripsService', function ($http, baseServiceUrl, usersService) {
         }
     }
 
+    service.getMyTrips = function (success, error) {
+        $http.get(serviceUrl + '/my-trips', {
+            headers: usersService.GetHeaders()
+        }).success(function (data, headers, config, status) {
+            success(data);
+        }).error(error);
+    }
+
     service.postTrip = function(data, success, error) {
         $http.post(serviceUrl, data, { headers: usersService.GetHeaders() })
             .success(function(data, status, headers, config) {
