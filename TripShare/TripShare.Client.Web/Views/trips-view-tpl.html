@@ -17,7 +17,7 @@
                 </div>
             </div>
             <p>
-                <a ng-hide="trip.isJoined" ng-disabled="trip.isOwner" ng-click="joinTrip(trip.Id)" class="btn btn-primary" role="button">Join</a>
+                <a ng-hide="trip.isJoined" ng-disabled="trip.isOwner | trip.AvailableSeats > 0" ng-click="joinTrip(trip.Id)" class="btn btn-primary" role="button">Join</a>
                 <a ng-show="trip.isJoined" ng-click="leaveTrip(trip.Id)" class="btn btn-danger" role="button">Leave</a>
 
                 <button class="btn btn-default" role="button" data-toggle="collapse" data-target="#commentsCollapse{{trip.Id}}" aria-expanded="false" aria-controls="commentsCollapse{{trip.Id}}">Comments<span class="badge">{{trip.CommentsCount}}</span></button>
