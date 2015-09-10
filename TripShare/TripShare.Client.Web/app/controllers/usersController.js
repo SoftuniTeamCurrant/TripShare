@@ -113,6 +113,17 @@
             });
     }
 
+    $scope.kick = function(id, userId) {
+        tripsService.kick(id, userId, function(data) {
+            console.log(data);
+            console.log("successfull kick");
+            $route.reload();
+        },
+        function(err) {
+            console.log(err);
+        })
+    }
+
     var getAllCities = function () {
         citiesService.getAllCities(function (data) {
             $scope.cities = data;

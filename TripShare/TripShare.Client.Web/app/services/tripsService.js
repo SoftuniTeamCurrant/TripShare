@@ -49,5 +49,13 @@ myApp.factory('tripsService', function ($http, baseServiceUrl, usersService) {
             .error(error);
     }
 
+    service.kick = function(id, userId, success, error) {
+        $http.put(serviceUrl + "/" + id + "/kick/" + userId, null, { headers: usersService.GetHeaders() })
+            .success(function (data, status, headers, config) {
+                success(data);
+            })
+            .error(error);
+    }
+
     return service;
 });

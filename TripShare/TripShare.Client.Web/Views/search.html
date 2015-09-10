@@ -14,7 +14,7 @@
                         <h3>Passangers:</h3>
                         <div ng-repeat="p in trip.Passengers">
                             <span id="p.Id">{{p.UserName}}</span>
-                            <a ng-show="trip.isOwner" class="btn btn-danger" role="button">Kick</a>
+                            <a ng-click="kick(trip.Id, p.Id)" ng-show="trip.isOwner" class="btn btn-danger" role="button">Kick</a>
                         </div>
                     </div>
                     <p>
