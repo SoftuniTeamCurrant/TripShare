@@ -58,6 +58,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\services\commentsServices.js" />
+    <Content Include="Content\style.css" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="packages.config" />
     <Content Include="Scripts\angular-route.min.js.map" />
@@ -93,6 +95,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.0.js" />
     <Content Include="Scripts\jquery-1.9.0.min.js" />
+    <Content Include="views\comments-view-tpl.html" />
     <Content Include="views\create.html" />
     <Content Include="views\home.html" />
     <Content Include="views\login-form.html" />

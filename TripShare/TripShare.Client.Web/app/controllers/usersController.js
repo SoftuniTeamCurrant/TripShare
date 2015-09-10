@@ -10,7 +10,7 @@
     $scope.isLoggedIn = isUserLoggedIn;
     $scope.cities = {};
 
-    if (!isUserLoggedIn) {
+    if (!isUserLoggedIn && $location.path() != '/register') {
         $location.path('/');
     }
 
@@ -53,6 +53,19 @@
                 console.log('Unsuccessful logout!');
             });
     };
+
+    $scope.register = function() {
+        usersService.Register($scope.registerData,
+            function () {
+                console.log('Successfully registered in!');
+                $location.path('/');
+            },
+            function (serverError) {
+                console.log('Unsuccessful register! <br/>' + serverError.error_description);
+                console.log(serverError);
+
+            });
+    }
 
     $scope.searchRedirect = function () {
         var data = $scope.searchData;

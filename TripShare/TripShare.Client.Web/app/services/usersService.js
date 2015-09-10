@@ -3,8 +3,6 @@
 myApp.factory('usersService', function ($http, baseServiceUrl) {
     var service = {};
 
-    var serviceUrl = baseServiceUrl + '/users';
-
     service.Login = function (loginData, success, error) {
         $http.post(baseServiceUrl.replace('/api', '/token'), 'username=' + loginData.username +
             '&password=' + loginData.password + '&grant_type=password',
@@ -22,6 +20,17 @@ myApp.factory('usersService', function ($http, baseServiceUrl) {
                 }
             }).success(success)
             .error(error);
+    }
+
+    service.Register = function (registerData, success, error) {
+        $http.post(baseServiceUrl + '/account/register', 'Username=' + registerData.username +
+            '&email=' + registerData.email +
+            '&password=' + registerData.password +
+            '&confirmPassword=' + registerData.confirm_pass,
+            { headers: { "Content-Type": "application/x-www-form-urlencoded" } })
+            .success(function(data, status, headers, config) {
+                success(data);
+            }).error(error);
     }
 
     service.SetCredentials = function (serverData) {

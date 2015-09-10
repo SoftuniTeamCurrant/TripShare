@@ -3,13 +3,14 @@
     <div class="thumbnail">
         <div class="caption">
             <h3>{{trip.Title}}</h3>
+            <p>Departure time: {{trip.DepartureTime | date:'dd/MM/yyyy HH:mm:ss'}}</p>
             <p ng-if="trip.Description">{{trip.Description}}</p>
             <p>Driver user: {{trip.DriverName}}</p>
             <p>Departure city: {{trip.DepartureCityName}}</p>
             <p>Arrival city: {{trip.ArrivalCityName}}</p>
             <p>Seats available: {{trip.AvailableSeats}}</p>
             <a ng-show="trip.isOwner" ng-click="deleteTrip(trip.Id)" class="btn btn-danger" role="button">Delete Trip</a>
-            <div class="caption">
+            <div class="caption" ng-if="trip.Passengers.length > 0">
                 <h3>Passangers:</h3>
                 <div ng-repeat="p in trip.Passengers">
                     <span id="p.Id">{{p.UserName}}</span>
@@ -17,7 +18,7 @@
                 </div>
             </div>
             <p>
-                <a ng-hide="trip.isJoined" ng-disabled="trip.isOwner | trip.AvailableSeats > 0" ng-click="joinTrip(trip.Id)" class="btn btn-primary" role="button">Join</a>
+                <a ng-hide="trip.isJoined" ng-disabled="trip.isOwner && trip.AvailableSeats > 0" ng-click="joinTrip(trip.Id)" class="btn btn-primary" role="button">Join</a>
                 <a ng-show="trip.isJoined" ng-click="leaveTrip(trip.Id)" class="btn btn-danger" role="button">Leave</a>
 
                 <button class="btn btn-default" role="button" data-toggle="collapse" data-target="#commentsCollapse{{trip.Id}}" aria-expanded="false" aria-controls="commentsCollapse{{trip.Id}}">Comments<span class="badge">{{trip.CommentsCount}}</span></button>
