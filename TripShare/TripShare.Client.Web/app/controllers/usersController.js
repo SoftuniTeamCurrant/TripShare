@@ -56,36 +56,36 @@
         }
     }
 
-    $scope.displaySearchData = function() {
+    $scope.displaySearchData = function () {
         tripsService.getTripsSearchData($routeParams, function (data) {
-                data.forEach(function(trip) {
-                    trip["isJoined"] = false;
-                    trip["isOwner"] = false;
-                    if (trip["DriverName"] === localStorage["userName"]) {
-                        trip["isOwner"] = true;
+            data.forEach(function (trip) {
+                trip["isJoined"] = false;
+                trip["isOwner"] = false;
+                if (trip["DriverName"] === localStorage["userName"]) {
+                    trip["isOwner"] = true;
+                }
+                trip["Passengers"].forEach(function (passanger) {
+                    if (passanger["UserName"] == localStorage["userName"]) {
+                        trip["isJoined"] = true;
                     }
-                    trip["Passengers"].forEach(function (passanger) {
-                        if (passanger["UserName"] == localStorage["userName"]) {
-                            trip["isJoined"] = true;
-                        }
-                    });
                 });
+            });
             if (data.length) {
                 $scope.searchTripData = data;
             }
             console.log(data);
         },
-        function(err) {
+        function (err) {
             console.log(err);
         });
     }
 
     $scope.createTrip = function () {
         var data = $scope.createTripData;
-        tripsService.postTrip(data, function(data) {
-                console.log(data);
-            },
-            function(error) {
+        tripsService.postTrip(data, function (data) {
+            console.log(data);
+        },
+            function (error) {
                 console.log(error);
             });
         $scope.createTripData = '';
@@ -97,9 +97,9 @@
                 console.log("You have joined successfully");
                 $route.reload();
             },
-            function(err) {
+            function (err) {
                 console.log(err.responseText);
-        });
+            });
     }
 
     $scope.leaveTrip = function (id) {
@@ -124,6 +124,24 @@
     if ($location.path() != '/') {
         $(document).ready(getAllCities());
     }
+
+    //TODO ADD DATE
+    $scope.createTrip = function () {
+        var data = {
+            Title: $scope.createTripData.Title,
+            ArrivalCityId: $scope.createTripData.toCity,
+            DepartureCityId: $scope.createTripData.fromCity,
+            AvaibleSeats: $scope.createTripData.avaiableSeats,
+            Description: $scope.createTripData.Description,
+        }
+        tripsService.postTrip(data, function (data) {
+            console.log(data);
+        },
+        function (error) {
+            console.log(error);
+        });
+    };
+
 
     $scope.navTemplate = '/views/nav.html';
 
