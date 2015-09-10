@@ -217,6 +217,7 @@
 
 
     $scope.navTemplate = '/views/nav.html';
+    $scope.tripsTemplate = '/views/trips-view-tpl.html';
 
     Date.prototype.yyyymmdd = function () {
         var yyyy = this.getFullYear().toString();

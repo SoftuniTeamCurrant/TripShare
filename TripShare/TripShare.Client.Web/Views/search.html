@@ -1,35 +1,7 @@
 ﻿<div ng-include="navTemplate"></div>
 <div class="row" ng-init="displaySearchData()">
     <div class="col-md-12">
-        <div ng-repeat="trip in searchTripData" class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <div class="caption">
-                    <h3>{{trip.Title}}</h3>
-                    <p ng-if="trip.Description">{{trip.Description}}</p>
-                    <p>Driver user: {{trip.DriverName}}</p>
-                    <p>Departure city: {{trip.DepartureCityName}}</p>
-                    <p>Arrival city: {{trip.ArrivalCityName}}</p>
-                    <p>Seats available: {{trip.AvailableSeats}}</p>
-                    <a ng-show="trip.isOwner" ng-click="deleteTrip(trip.Id)" class="btn btn-danger" role="button">Delete Trip</a>
-                    <div class="caption">
-                        <h3>Passangers:</h3>
-                        <div ng-repeat="p in trip.Passengers">
-                            <span id="p.Id">{{p.UserName}}</span>
-                            <a ng-click="kick(trip.Id, p.Id)" ng-show="trip.isOwner" class="btn btn-danger" role="button">Kick</a>
-                        </div>
-                    </div>
-                    <p>
-                        <a ng-hide="trip.isJoined" ng-disabled="trip.isOwner" ng-click="joinTrip(trip.Id)" class="btn btn-primary" role="button">Join</a>
-                        <a ng-show="trip.isJoined" ng-click="leaveTrip(trip.Id)" class="btn btn-danger" role="button">Leave</a>
-
-                        <a href="#" class="btn btn-default" role="button">Comments<span class="badge">{{trip.CommentsCount}}</span></a>
-                    </p>
-                </div>
-                <div class="caption">
-                    <textarea ng-model="content" rows="3" cols="40"></textarea>
-                    <a class="btn btn-primary" ng-click="addComment(trip.Id, content)" role="button">Comment</a>
-                </div>
-            </div>
+        <div ng-repeat="trip in searchTripData" ng-include="tripsTemplate">
         </div>
         <h3 ng-if="!searchTripData">
             No data
