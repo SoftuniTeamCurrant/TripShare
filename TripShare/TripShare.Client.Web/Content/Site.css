@@ -20,3 +20,11 @@ textarea {
 .top-marg-24 {
     margin-top: 24px;
 }
+
+.bottom-margin25 {
+    margin-bottom: 25px;
+}
+
+.hide {
+    display: none;
+}

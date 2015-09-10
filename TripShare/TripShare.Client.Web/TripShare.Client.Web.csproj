@@ -99,6 +99,7 @@
     <Content Include="views\my-trips.html" />
     <Content Include="views\nav.html" />
     <Content Include="views\search.html" />
+    <Content Include="views\trips-view-tpl.html" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.9.0.min.map" />
   </ItemGroup>

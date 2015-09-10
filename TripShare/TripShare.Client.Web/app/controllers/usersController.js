@@ -1,7 +1,12 @@
 ﻿myApp.controller('UsersController', function ($scope, $location, $routeParams, $route, usersService, tripsService, citiesService) {
 
+    $scope.navTemplate = '/views/nav.html';
+    $scope.tripsTemplate = '/views/trips-view-tpl.html';
+    $scope.commentsTemplate = '/views/comments-view-tpl.html';
+
     var isLocationPathHome = $location.path() === "/";
     var isUserLoggedIn = usersService.isLoggedIn();
+
     $scope.isLoggedIn = isUserLoggedIn;
     $scope.cities = {};
 
@@ -142,13 +147,13 @@
 
     $scope.kick = function(id, userId) {
         tripsService.kick(id, userId, function(data) {
-            console.log(data);
-            console.log("successfull kick");
-            $route.reload();
-        },
-        function(err) {
-            console.log(err);
-        })
+                console.log(data);
+                console.log("successfull kick");
+                $route.reload();
+            },
+            function(err) {
+                console.log(err);
+            });
     }
 
     var getAllCities = function () {
@@ -215,9 +220,26 @@
         });
     };
 
+    $scope.displayCommentsContainer = function (tripId) {
+        var element = $('.comments[data-tripId=' + tripId + ']');
+        if (element.hasClass('hide')) {
+            element.removeClass('hide');
+        } else {
+            element.addClass('hide');
+        };
+    }
 
-    $scope.navTemplate = '/views/nav.html';
-    $scope.tripsTemplate = '/views/trips-view-tpl.html';
+    $scope.commentedTrips = [];
+
+    $scope.getTripsCommentsData = function (tripId) {
+        tripsService.getTripComments(tripId, function (data) {
+                $scope.commentedTrips[tripId] = data;
+                console.log($scope.commentedTrips);
+            },
+            function (err) {
+                console.log(err);
+            });
+    }
 
     Date.prototype.yyyymmdd = function () {
         var yyyy = this.getFullYear().toString();

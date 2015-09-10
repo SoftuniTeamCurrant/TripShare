@@ -81,5 +81,13 @@ myApp.factory('tripsService', function ($http, baseServiceUrl, usersService) {
             .error(error);
     }
 
+    service.getTripComments = function(id, success, error) {
+        $http.get(serviceUrl + "/" + id + "/comments", { headers: usersService.GetHeaders() })
+            .success(function (data, status, headers, config) {
+                success(data);
+            })
+            .error(error);
+    }
+
     return service;
 });

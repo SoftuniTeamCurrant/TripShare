@@ -1,5 +1,5 @@
 ﻿<div ng-if="$index % 3 == 0" class="clearfix"></div>
-<div class="col-sm-6 col-md-4">
+<div class="col-sm-6 col-md-4 bottom-margin25">
     <div class="thumbnail">
         <div class="caption">
             <h3>{{trip.Title}}</h3>
@@ -20,12 +20,9 @@
                 <a ng-hide="trip.isJoined" ng-disabled="trip.isOwner" ng-click="joinTrip(trip.Id)" class="btn btn-primary" role="button">Join</a>
                 <a ng-show="trip.isJoined" ng-click="leaveTrip(trip.Id)" class="btn btn-danger" role="button">Leave</a>
 
-                <a href="#" class="btn btn-default" role="button">Comments<span class="badge">{{trip.CommentsCount}}</span></a>
+                <button class="btn btn-default" role="button" ng-click="displayCommentsContainer(trip.Id)">Comments<span class="badge">{{trip.CommentsCount}}</span></button>
             </p>
         </div>
-        <div class="caption">
-            <textarea ng-model="content" rows="3" cols="40"></textarea>
-            <a class="btn btn-primary" ng-click="addComment(trip.Id, content)" role="button">Comment</a>
-        </div>
+        <div ng-include="commentsTemplate" class="comments hide" data-tripId="{{trip.Id}}"></div>
     </div>
 </div>

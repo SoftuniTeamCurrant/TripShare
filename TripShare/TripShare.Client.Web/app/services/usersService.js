@@ -16,12 +16,12 @@ myApp.factory('usersService', function ($http, baseServiceUrl) {
 
     service.Logout = function (success, error) {
         $http.post(baseServiceUrl + "/account/logout", {}, {
-            headers: {
-                Authorization: "bearer " + localStorage['accessToken'],
-                "Content-Type": "application/x-www-form-urlencoded"
-            }
-        }).success(success)
-        .error(error)
+                headers: {
+                    Authorization: "bearer " + localStorage['accessToken'],
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            }).success(success)
+            .error(error);
     }
 
     service.SetCredentials = function (serverData) {

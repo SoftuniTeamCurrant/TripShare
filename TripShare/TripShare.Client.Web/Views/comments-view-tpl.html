@@ -1,0 +1,7 @@
+﻿<div class="caption" ng-init="getTripsCommentsData(trip.Id)">
+    <div ng-repeat=" comment in commentedTrips[trip.Id]">
+        {{comment.Content}}
+    </div>
+    <textarea ng-model="content" rows="3" cols="40"></textarea>
+    <a class="btn btn-primary" ng-click="addComment(trip.Id, content)" role="button">Comment</a>
+</div>
