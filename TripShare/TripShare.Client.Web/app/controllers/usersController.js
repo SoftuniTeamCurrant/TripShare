@@ -2,6 +2,7 @@
 
     var isLocationPathHome = $location.path() === "/";
     var isUserLoggedIn = usersService.isLoggedIn();
+    $scope.isLoggedIn = isUserLoggedIn;
     $scope.cities = {};
 
     if (!isUserLoggedIn) {
