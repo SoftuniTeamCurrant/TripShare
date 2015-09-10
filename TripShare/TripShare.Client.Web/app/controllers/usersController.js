@@ -36,6 +36,18 @@
             });
     };
 
+    $scope.logout = function () {
+        usersService.Logout(
+            function () {
+                console.log("Successfully logged out!");
+                usersService.ClearCredentials();
+                $location.path('/#')
+            },
+            function (serverError) {
+                console.log('Unsuccessful logout!');
+            });
+    };
+
     $scope.searchRedirect = function () {
         var data = $scope.searchData;
         $location.path('/trips/search');

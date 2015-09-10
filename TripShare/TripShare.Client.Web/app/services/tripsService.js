@@ -32,6 +32,7 @@ myApp.factory('tripsService', function ($http, baseServiceUrl, usersService) {
             .error(error);
     }
 
+
     service.joinTrip = function(id, success, error) {
         $http.put(serviceUrl + "/" + id + "/join", null, { headers: usersService.GetHeaders() })
             .success(function (data, status, headers, config) {
