@@ -225,7 +225,7 @@
         };
 
         tripsService.postTrip(data, function (data) {
-                $location.path('/my-trips');
+                $location.path('/trips/my-trips');
             },
         function (error) {
             console.log(date);
