@@ -42,6 +42,12 @@ namespace TripShare.Data
                 .HasMany(x => x.JoinedTrips)
                 .WithMany(t => t.Passengers);
 
+            modelBuilder.Entity<Comment>()
+                .HasRequired(c => c.Trip)
+                .WithMany(t => t.Comments)
+                .HasForeignKey(c => c.TripId)
+                .WillCascadeOnDelete(true);
+
             base.OnModelCreating(modelBuilder);
         }
 

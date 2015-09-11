@@ -245,6 +245,20 @@
             });
     }
 
+    $scope.deleteComment = function(id) {
+        tripsService.deleteComment(id, function(data) {
+                console.log("Deleted comment");
+                $route.reload();
+            },
+            function(err) {
+                console.log(err);
+            });
+    }
+
+    $scope.getLoggedinUsername = function() {
+        return localStorage.userName;
+    }
+
     Date.prototype.yyyymmdd = function () {
         var yyyy = this.getFullYear().toString();
         var mm = (this.getMonth() + 1).toString(); // getMonth() is zero-based

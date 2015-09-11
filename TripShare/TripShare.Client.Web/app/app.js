@@ -1,7 +1,7 @@
 ﻿var myApp = angular.module('TripShare', ['ngRoute']);
 
-//myApp.constant('baseServiceUrl', 'http://localhost:54118/api');
-myApp.constant('baseServiceUrl', 'http://tripshareservice.azurewebsites.net/api');
+myApp.constant('baseServiceUrl', 'http://localhost:54118/api');
+//myApp.constant('baseServiceUrl', 'http://tripshareservice.azurewebsites.net/api');
 myApp.config(function ($routeProvider) {
     $routeProvider
         .when('/', {

@@ -66,7 +66,7 @@ myApp.factory('tripsService', function ($http, baseServiceUrl, usersService) {
     }
 
     service.kick = function(id, userId, success, error) {
-        $http.put(serviceUrl + "/" + id + "/kick/" + userId, null, { headers: usersService.GetHeaders() })
+        $http.delete(baseServiceUrl + "/comments" + id, { headers: usersService.GetHeaders() })
             .success(function (data, status, headers, config) {
                 success(data);
             })
@@ -83,6 +83,14 @@ myApp.factory('tripsService', function ($http, baseServiceUrl, usersService) {
 
     service.getTripComments = function(id, success, error) {
         $http.get(serviceUrl + "/" + id + "/comments", { headers: usersService.GetHeaders() })
+            .success(function (data, status, headers, config) {
+                success(data);
+            })
+            .error(error);
+    }
+
+    service.deleteComment = function(id, success, error) {
+        $http.delete(baseServiceUrl + "/comments/" + id, { headers: usersService.GetHeaders() })
             .success(function (data, status, headers, config) {
                 success(data);
             })
