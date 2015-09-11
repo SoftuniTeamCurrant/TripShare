@@ -90,7 +90,7 @@ myApp.factory('tripsService', function ($http, baseServiceUrl, usersService) {
     }
 
     service.deleteComment = function(id, success, error) {
-        $http.delete("http://localhost:54118/api/comments/" + id, { headers: usersService.GetHeaders() })
+        $http.delete(baseServiceUrl + "/comments/" + id, { headers: usersService.GetHeaders() })
             .success(function (data, status, headers, config) {
                 success(data);
             })
