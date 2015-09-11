@@ -1,2 +1,2 @@
 [config]
-project = TripShare/TripShare.Client.Web/TripShare.Client.Web.csproj
+project = TripShare/TripShare.Web/TripShare.Web.csproj
