@@ -3,6 +3,7 @@
         <div class="list-group-item">
             <p>{{$index + 1}}. [By: {{comment.Author}}] [{{comment.PostedOn | date:'dd/MM/yyyy HH:mm:ss'}}]</p>
             <p>Message: {{comment.Content}}</p>
+            <a ng-show="trip.isOwner || comment.Author === getLoggedinUsername()" class="btn btn-danger" ng-click="deleteComment(comment.Id)" role="button">Delete</a>
         </div>
     </div>
     <div class="list-group">
